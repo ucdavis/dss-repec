@@ -12,9 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2018_04_23_191343) do
 
-  create_table "papers", force: :cascade do |t|
-    t.string "Author"
-    t.string "Title"
+  create_table "papers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", limit: 256, null: false
+    t.text "abstract"
+    t.integer "paper_number", null: false
+    t.date "creation_date"
+    t.text "keywords"
+    t.integer "paper_length"
+    t.text "classification_jel"
+    t.json "authors", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
