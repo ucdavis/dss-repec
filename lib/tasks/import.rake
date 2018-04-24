@@ -28,13 +28,14 @@ namespace :papers do
 
     max_field = 0
 
-    files.each do |file|
+    files.each do |filename|
       # Filter out non-.rdf files
-      next unless file.downcase.end_with?(".rdf")
+      next unless filename.downcase.end_with?(".rdf")
 
-      file = File.new(file, 'r', encoding: 'iso-8859-1')
+      file = File.new(filename, 'r', encoding: 'iso-8859-1')
 
       paper = Paper.new
+      paper.authors = []
 
       # Use file.gets() as we may need to skip lines within the 'while' loop
       while (line = file.gets) do
@@ -46,9 +47,7 @@ namespace :papers do
           # string, max found 17, always 'ReDIF-Paper 1.0'
         when "Author-Name"
           # string, max found 32
-          # puts "author name:"
-          # puts value
-          # max_field = value.length > max_field ? value.length : max_field
+          paper.authors << value.gsub(/\s+/, ' ') # clean up excessive whitespace
         when "Author-Name-First"
           # string, max found 30
         when "Author-Name-Last"
@@ -57,8 +56,7 @@ namespace :papers do
           # string, max found 57
         when "Title"
           # string, max found 132
-          # paper.title = value
-          # max_field = value.length > max_field ? value.length : max_field
+          paper.title = value
         when "Abstract"
           # Abstract may be multiple lines. Collect them together.
           # Abstract likely begins on this line, e.g. "Abstract: This is",
@@ -74,33 +72,37 @@ namespace :papers do
               abstract += line
             end
           end
+          paper.abstract = abstract
         when "File-URL"
           # string, max found 54
         when "File-Format"
           # string, max found 17, apparently always 'Application/pdf'
         when "Number"
           # integer, unique number used in handle?
+          paper.paper_number = value.to_i
         when "KeyWords", "Keywords"
           # string, max found 297, needs some cleaning up
-          # puts "author name:"
-          # puts value
-          # max_field = value.length > max_field ? value.length : max_field
+          paper.keywords = value
         when "Length"
           # integer, The number of pages the document would have if printed.
+          paper.paper_length = value.to_i
         when "Handle"
           # investigate, special field, e.g. RePEc:cda:wpaper:05-16, max length was 24
           # This uniquely identifies the paper. It consists of your RePEc handle, the series handle, and then paper number (which must be unique).
         when "Creation-Date"
           # date, displayed like '20030109', max length 10
           # The date is the date the paper was written, not the date the template was added.
+          paper.creation_date = Date.parse(value)
         when "Classification-JEL"
           # string list, max length 49, codes from https://ideas.repec.org/j/
+          paper.classification_jel = value
         else
           puts "Unknown field: #{field}"
         end
       end
 
       file.close
+      paper.save!
     end
   end
 end
