@@ -8,7 +8,7 @@ class CreatePapers < ActiveRecord::Migration[5.2]
       t.text :keywords, null: true
       t.integer :paper_length, null: true
       t.text :classification_jel, null: true
-      t.json :authors, null: false
+      t.text :authors, null: false
 
       t.timestamps
     end

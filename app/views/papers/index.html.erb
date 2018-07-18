@@ -14,8 +14,8 @@
   <tbody>
     <% @papers.each do |paper| %>
       <tr>
-        <td><%= paper.Author %></td>
-        <td><%= paper.Title %></td>
+        <td><%= paper.authors.join(",") %></td>
+        <td><%= paper.title %></td>
         <td><%= link_to 'Show', paper %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
         <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
