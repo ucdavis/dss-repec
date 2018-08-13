@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  #get 'browser/index'
+
   resources :papers
 
-  get '*path', to: 'browser#index'
+  #root 'browser#index'
+
+  get '*path', to: 'browser#index', as: :pathway
+
+   # get '/browser/repec', to: 'browser#repec', as: "repec"
 end

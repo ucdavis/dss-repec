@@ -10,6 +10,7 @@ class PapersController < ApplicationController
   # GET /papers/1
   # GET /papers/1.json
   def show
+    @paper = Paper.find(params[:id])
   end
 
   # GET /papers/new
@@ -19,12 +20,15 @@ class PapersController < ApplicationController
 
   # GET /papers/1/edit
   def edit
+    @paper= Paper.find(params[:id])
   end
 
   # POST /papers
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
+
+    #:paper_number = "00"
 
     respond_to do |format|
       if @paper.save
@@ -69,6 +73,6 @@ class PapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paper_params
-      params.require(:paper).permit(:Author, :Title)
+      params.require(:paper).permit(:title, :text)
     end
 end

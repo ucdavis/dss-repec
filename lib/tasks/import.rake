@@ -35,19 +35,19 @@ namespace :papers do
       file = File.new(filename, 'r', encoding: 'iso-8859-1')
 
       paper = Paper.new
-      paper.authors = []
+      authors = []
 
       # Use file.gets() as we may need to skip lines within the 'while' loop
       while (line = file.gets) do
         field, value = field_from(line)
         next unless field
-        
+
         case field
         when "Template-Type"
           # string, max found 17, always 'ReDIF-Paper 1.0'
         when "Author-Name"
           # string, max found 32
-          paper.authors << value.gsub(/\s+/, ' ') # clean up excessive whitespace
+          authors << value.gsub(/\s+/, ' ') # clean up excessive whitespace
         when "Author-Name-First"
           # string, max found 30
         when "Author-Name-Last"
@@ -79,7 +79,7 @@ namespace :papers do
           # string, max found 17, apparently always 'Application/pdf'
         when "Number"
           # integer, unique number used in handle?
-          paper.paper_number = value.to_i
+          paper.paper_number = value
         when "KeyWords", "Keywords"
           # string, max found 297, needs some cleaning up
           paper.keywords = value
@@ -102,6 +102,7 @@ namespace :papers do
       end
 
       file.close
+      paper.authors = authors.to_json
       paper.save!
     end
   end
