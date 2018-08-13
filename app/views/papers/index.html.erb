@@ -2,19 +2,24 @@
 
 <h1>Papers</h1>
 
+<br>
+<%= link_to 'New Paper', new_paper_path %>
+
 <table>
   <thead>
     <tr>
-      <th>Author</th>
+      <th> ID </th>
+      <th>Authors</th>
       <th>Title</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @papers.each do |paper| %>
       <tr>
-        <td><%= paper.authors.join(",") %></td>
+        <td><%= paper.id %></td>
+        <td><%= paper.authors %></td>
         <td><%= paper.title %></td>
         <td><%= link_to 'Show', paper %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
@@ -23,7 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Paper', new_paper_path %>

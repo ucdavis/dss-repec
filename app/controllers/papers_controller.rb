@@ -28,7 +28,8 @@ class PapersController < ApplicationController
   def create
     @paper = Paper.new(paper_params)
 
-    #:paper_number = "00"
+    #validates :paper_number, presence: true
+    #validates_presence_of :paper_number
 
     respond_to do |format|
       if @paper.save
@@ -73,6 +74,6 @@ class PapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paper_params
-      params.require(:paper).permit(:title, :text)
+      params.require(:paper).permit(:title, :authors, :text, :paper_number, :abstract, :keywords)
     end
 end
