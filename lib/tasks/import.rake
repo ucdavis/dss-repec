@@ -47,12 +47,17 @@ namespace :papers do
           # string, max found 17, always 'ReDIF-Paper 1.0'
         when "Author-Name"
           # string, max found 32
-          authors << value.gsub(/\s+/, ' ') # clean up excessive whitespace
+          #authors << value.gsub(/\s+/, ' ') # clean up excessive whitespace
+          puts "found author name"
+          paper.authors << Author.find_or_create_by(name: value.gsub(/\s+/, ' '))
         when "Author-Name-First"
+          puts "found author2 name"
           # string, max found 30
         when "Author-Name-Last"
+          puts "found autho3r name"
           # string, max found 16
         when "Author-Workplace-Name"
+          puts "found author4 name"
           # string, max found 57
         when "Title"
           # string, max found 132
@@ -102,7 +107,6 @@ namespace :papers do
       end
 
       file.close
-      paper.authors = authors.to_json
       paper.save!
     end
   end

@@ -28,6 +28,8 @@ class PapersController < ApplicationController
   def create
     @paper = Paper.new(paper_params)
 
+    #validates :author, presence: true
+
     #validates :paper_number, presence: true
     #validates_presence_of :paper_number
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'authors/new'
   #get 'browser/index'
 
   resources :papers

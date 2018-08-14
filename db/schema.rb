@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_210558) do
+ActiveRecord::Schema.define(version: 2018_08_14_191500) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,15 +33,26 @@ ActiveRecord::Schema.define(version: 2018_07_19_210558) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors_papers", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "paper_id", null: false
+    t.bigint "author_id", null: false
+    t.index ["paper_id", "author_id"], name: "index_authors_papers_on_paper_id_and_author_id"
+  end
+
   create_table "papers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", limit: 256, null: false
     t.text "abstract"
-    t.string "paper_number", null: false
+    t.string "paper_number", default: "0", null: false
     t.date "creation_date"
     t.text "keywords"
     t.integer "paper_length"
     t.text "classification_jel"
-    t.text "authors", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
