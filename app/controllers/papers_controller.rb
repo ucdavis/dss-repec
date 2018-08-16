@@ -5,7 +5,6 @@ class PapersController < ApplicationController
   # GET /papers.json
   def index
     @papers = Paper.all
-    @authors = Author.all
   end
 
   # GET /papers/1
@@ -21,7 +20,7 @@ class PapersController < ApplicationController
 
   # GET /papers/1/edit
   def edit
-    @paper= Paper.find(params[:id])
+    @paper = Paper.find(params[:id])
   end
 
   # POST /papers
@@ -39,6 +38,7 @@ class PapersController < ApplicationController
 
     #validates :paper_number, presence: true
     #validates_presence_of :paper_number
+
 
     respond_to do |format|
       if @paper.save
@@ -83,6 +83,6 @@ class PapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paper_params
-      params.require(:paper).permit(:title, :authors, :text, :paper_number, :abstract, :keywords)
+      params.require(:paper).permit(:title, :text, :paper_number, :abstract, :keywords)
     end
 end

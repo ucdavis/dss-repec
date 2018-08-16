@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  get 'authors/new'
+  #get 'authors/new'
   #get 'browser/index'
 
   resources :papers
+  resources :authors
+
+  #resources :papers do
+  #  resources :authors
+  #end
 
   #root 'browser#index'
 

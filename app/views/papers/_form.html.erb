@@ -12,23 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :authors %>
-    <%= form.text_field :authors %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :abstract %>
-    <%= form.text_area :abstract, :size => "60x12" %>
+    <%= form.text_area :abstract, :size => "60x12", required: true %>
   </div>
 
   <div class="field">
     <%= form.label :keywords %>
-    <%= form.text_field :keywords, size:40 %>
+    <%= form.text_field :keywords, size:40, required: true %>
   </div>
 
   <div class="field">

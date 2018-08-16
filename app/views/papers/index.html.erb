@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Papers</h1>
+<h1> Papers </h1>
 
 <br>
 <%= link_to 'New Paper', new_paper_path %>
@@ -9,9 +9,8 @@
   <thead>
     <tr>
       <th> ID </th>
-      <th>Authors</th>
       <th>Title</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -19,11 +18,6 @@
     <% @papers.each do |paper| %>
       <tr>
         <td><%= paper.id %></td>
-        <td> <%= paper.authors.each do |author| %>
-                <%= author.name %>
-             <% end %>
-        </td>
-        </td>
         <td><%= paper.title %></td>
         <td><%= link_to 'Show', paper %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
