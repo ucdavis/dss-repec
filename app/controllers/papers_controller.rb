@@ -5,6 +5,7 @@ class PapersController < ApplicationController
   # GET /papers.json
   def index
     @papers = Paper.all
+    @authors = Author.all
   end
 
   # GET /papers/1
@@ -27,6 +28,12 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
+
+#    @paper = current_paper.authors.build(paper_params)
+
+  #  params[:authors][:id].each do |author|
+  #    @paper.authors.create(author)
+  #  end
 
     #validates :author, presence: true
 

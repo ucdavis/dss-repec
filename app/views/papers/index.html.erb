@@ -19,7 +19,11 @@
     <% @papers.each do |paper| %>
       <tr>
         <td><%= paper.id %></td>
-        <td><%= paper.authors %></td>
+        <td> <%= paper.authors.each do |author| %>
+                <%= author.name %>
+             <% end %>
+        </td>
+        </td>
         <td><%= paper.title %></td>
         <td><%= link_to 'Show', paper %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
