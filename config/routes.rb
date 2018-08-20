@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   resources :papers
   resources :authors
 
-  #resources :papers do
-  #  resources :authors
-  #end
-
   #root 'browser#index'
 
   get '*path', to: 'browser#index', as: :pathway

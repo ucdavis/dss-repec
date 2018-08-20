@@ -11,6 +11,7 @@ class PapersController < ApplicationController
   # GET /papers/1.json
   def show
     @paper = Paper.find(params[:id])
+    @author = Author.all
   end
 
   # GET /papers/new
@@ -27,18 +28,6 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
-
-#    @paper = current_paper.authors.build(paper_params)
-
-  #  params[:authors][:id].each do |author|
-  #    @paper.authors.create(author)
-  #  end
-
-    #validates :author, presence: true
-
-    #validates :paper_number, presence: true
-    #validates_presence_of :paper_number
-
 
     respond_to do |format|
       if @paper.save
@@ -83,6 +72,6 @@ class PapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paper_params
-      params.require(:paper).permit(:title, :text, :paper_number, :abstract, :keywords)
+      params.require(:paper).permit(:title, :text, :paper_number, :abstract, :keywords, author_ids: [])
     end
 end
