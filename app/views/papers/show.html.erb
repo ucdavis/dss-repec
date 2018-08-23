@@ -5,5 +5,5 @@
   <%= @paper.title%>
 </p>
 
-<%= link_to 'Edit', edit_paper_path(@paper) %> |
-<%= link_to 'Back', papers_path %>
+<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Edit', edit_paper_path(@paper), {:style=>'color:#333333;', :class => "css_class"} %></button>
+<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Back', papers_path, {:style=>'color:#333333;', :class => "css_class"} %></button>

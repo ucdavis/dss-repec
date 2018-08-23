@@ -1,3 +1,36 @@
 // Place all the styles related to the Papers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#authors_boxed_list {
+  select, ul { height: 300px; overflow: auto; width: 300px; border: 3px solid #bfbfbf; }
+    ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
+    li { margin: 0; padding: 0; }
+    label { display: block; color: WindowText; background-color: 	transparent; margin: 0; padding: 0; width: 100%; }
+    label:hover { background-color: Highlight; color: HighlightText;
+  }
+}
+
+#authors_boxed_list label input{
+  margin-right:5px;
+  margin-left:10px;
+}
+
+.btn {
+  border: 2px solid #b3b3b3;
+  background-color: #fffff;
+  padding: 2px 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: white;
+}
+
+.btn-primary:hover {
+  border: 2px solid #b3b3b3;
+  background-color: #b3b3b3;
+  color: white;
+}

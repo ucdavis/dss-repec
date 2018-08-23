@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,5 +7,5 @@
   <%= @author.name %>
 </p>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Edit', edit_author_path(@author), {:style=>'color:#333333;', :class => "css_class"} %></button>
+<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Back', authors_path, {:style=>'color:#333333;', :class => "css_class"} %></button>

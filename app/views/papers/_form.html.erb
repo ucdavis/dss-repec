@@ -1,3 +1,4 @@
+<div class="page1">
 <%= form_with(model: paper, local: true) do |form| %>
   <% if paper.errors.any? %>
     <div id="error_explanation">
@@ -32,15 +33,23 @@
   </div>
 
   <div class="field">
-  <h3> All Authors </h3>
-
-  <% Author.all.each do |author| %>
-    <%= check_box_tag "paper[author_ids][]", author.id %>
-    <%= author.name %> <br>
-  <% end %>
+    <h3> All Authors </h3>
+    <div id="authors_boxed_list">
+      <ul>
+        <% Author.all.each do |author| %>
+          <label>
+            <%= check_box_tag "paper[author_ids][]", author.id %>
+            <%= author.name %>
+          </label>
+        <% end %>
+      </ul>
+    </div>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+</div>

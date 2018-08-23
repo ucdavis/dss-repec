@@ -1,3 +1,22 @@
 // Place all the styles related to the Authors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.btn {
+  border: 2px solid #b3b3b3;
+  background-color: #fffff;
+  padding: 2px 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  color: white;
+}
+
+.btn-primary:hover {
+  border: 2px solid #b3b3b3;
+  background-color: #b3b3b3;
+  color: white;
+}

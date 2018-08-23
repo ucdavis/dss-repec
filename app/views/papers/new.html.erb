@@ -1,5 +1,7 @@
+<%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <h1>New Paper</h1>
 
 <%= render 'form', paper: @paper %>
 
-<%= link_to 'Back', papers_path %>
+<button type="button" class="btn btn-primary btn-outline-secondary"><%= link_to 'Back', papers_path, {:style=>'color:#333333;', :class => "css_class"} %></button>
