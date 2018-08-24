@@ -5,5 +5,21 @@
   <%= @paper.title%>
 </p>
 
+<p>
+  <strong>Abstract:</strong>
+  <%= @paper.abstract%>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @paper.keywords%>
+</p>
+
+<p>
+  <strong>Creation Date:</strong>
+  <%= @paper.creation_date%>
+</p>
+
+
 <button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Edit', edit_paper_path(@paper), {:style=>'color:#333333;', :class => "css_class"} %></button>
 <button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Back', papers_path, {:style=>'color:#333333;', :class => "css_class"} %></button>

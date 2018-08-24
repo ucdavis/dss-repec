@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 <p id="notice"><%= notice %></p>
 
@@ -6,9 +7,29 @@
 
 <br>
 
-<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'New Paper', new_paper_path, {:style=>'color:#333333;', :class => "css_class"} %></button>
+<%=form_tag papers_path,{:method=>'get', class:"container", role:"search"}  do%>
+	<div class="row">
+        <div class="col-md-6">
+    		<h2>Title search field</h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  <div class="form-group">
+                     <%=text_field_tag :search,"",class:"form-control",placeholder:"Title"%>
+                  </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+<%end%>
 
-<table class="table table-bordered table-hover">
+<button type="button" class="btn btn-primary btn-outline-dark" id="new_paper_button"><%= link_to 'New Paper', new_paper_path, {:style=>'color:#333333;', :class => "css_class"} %></button>
+
+<table class="table table-bordered table-hover" id="table">
   <thead>
     <tr>
       <th scope="col">Authors</th>
@@ -28,7 +49,7 @@
         <td scope="row"><%= paper.title %></td>
         <td scope="row"><%= paper.created_at %></td>
         <td>
-          <div class="btn-group">
+          <div class="btn-group" id="button_tool">
             <button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Show', paper, {:style=>'color:#333333;', :class => "css_class"} %></button>
             <button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Edit', edit_paper_path(paper), {:style=>'color:#333333;', :class => "css_class"} %> </button>
             <button type="button" class="btn btn-danger"><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></button>
@@ -38,3 +59,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @papers, renderer: BootstrapPagination::Rails %>
