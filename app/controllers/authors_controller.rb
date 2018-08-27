@@ -22,7 +22,10 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html {
+            flash[:success] = "Author was successfully created."
+            redirect_to @author
+        }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
@@ -34,7 +37,10 @@ class AuthorsController < ApplicationController
   def update
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: 'Paper was successfully updated.' }
+        format.html {
+          flash[:success] = "Paper was successfully updated."
+          redirect_to @author
+        }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit }
@@ -46,7 +52,10 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     respond_to do |format|
-      format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
+      format.html { 
+        flash[:success] = "Author was successfully destroyed."
+        redirect_to authors_url
+      }
       format.json { head :no_content }
     end
   end

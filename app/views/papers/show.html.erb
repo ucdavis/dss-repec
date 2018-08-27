@@ -2,24 +2,24 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @paper.title%>
+  <%= @paper.title %>
 </p>
 
 <p>
   <strong>Abstract:</strong>
-  <%= @paper.abstract%>
+  <%= @paper.abstract %>
 </p>
 
 <p>
   <strong>Keywords:</strong>
-  <%= @paper.keywords%>
+  <%= @paper.keywords %>
 </p>
 
 <p>
   <strong>Creation Date:</strong>
-  <%= @paper.creation_date%>
+  <%= @paper.creation_date %>
 </p>
 
 
-<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Edit', edit_paper_path(@paper), {:style=>'color:#333333;', :class => "css_class"} %></button>
-<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Back', papers_path, {:style=>'color:#333333;', :class => "css_class"} %></button>
+<%= link_to 'Edit', edit_paper_path(@paper), class: "btn btn-default outline" %>
+<%= link_to 'Back', papers_path, class: "btn btn-default outline" %>

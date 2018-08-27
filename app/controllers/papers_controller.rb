@@ -31,7 +31,10 @@ class PapersController < ApplicationController
 
     respond_to do |format|
       if @paper.save
-        format.html { redirect_to @paper, notice: 'Paper was successfully created.' }
+        format.html {
+          flash[:success] = "Paper was successfully created."
+          redirect_to @paper
+         }
         format.json { render :show, status: :created, location: @paper }
       else
         format.html { render :new }
@@ -45,7 +48,10 @@ class PapersController < ApplicationController
   def update
     respond_to do |format|
       if @paper.update(paper_params)
-        format.html { redirect_to @paper, notice: 'Paper was successfully updated.' }
+        format.html {
+          flash[:success] = "Paper was successfully updated."
+          redirect_to @paper
+        }
         format.json { render :show, status: :ok, location: @paper }
       else
         format.html { render :edit }
@@ -59,7 +65,10 @@ class PapersController < ApplicationController
   def destroy
     @paper.destroy
     respond_to do |format|
-      format.html { redirect_to papers_url, notice: 'Paper was successfully destroyed.' }
+      format.html {
+        flash[:success] = "Paper was successfully destroyed."
+        redirect_to papers_url
+      }
       format.json { head :no_content }
     end
   end

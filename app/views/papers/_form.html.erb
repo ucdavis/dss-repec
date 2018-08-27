@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, required: true %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
     <%= form.label :abstract %>
-    <%= form.text_area :abstract, :size => "60x12", required: true %>
+    <%= form.text_area :abstract, :size => "60x12" %>
   </div>
 
   <div class="field">
     <%= form.label :keywords %>
-    <%= form.text_field :keywords, size:40, required: true %>
+    <%= form.text_field :keywords, size:40 %>
   </div>
 
   <div class="field">
@@ -31,19 +31,27 @@
     <%= form.text_field :paper_number %>
   </div>
 
+
+
   <div class="field">
     <h3> All Authors </h3>
     <div id="authors_boxed_list">
       <ul>
         <% Author.all.each do |author| %>
+        <% checked = @paper.authors.include?(author) %>
+        <span class="three columns alpha">
+        <label for="regularCheckbox">
           <label>
-            <%= check_box_tag "paper[author_ids][]", author.id %>
-            <%= author.name %>
+            <%= check_box_tag "paper[author_ids][]", author.id, checked %>
+            <span class="gig-check"><%= author.name %></span>
           </label>
-        <% end %>
+        </span>
+      <% end %>
       </ul>
     </div>
   </div>
+
+  <%= link_to 'New Author', new_author_path, class: "btn btn-default outline" %>
 
   <div class="actions">
     <%= form.submit %>

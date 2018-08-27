@@ -4,5 +4,5 @@
 
 <%= render 'form', author: @author %>
 
-<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Show', @author, {:style=>'color:#333333;', :class => "css_class"} %></button>
-<button type="button" class="btn btn-primary btn-outline-dark"><%= link_to 'Back', authors_path, {:style=>'color:#333333;', :class => "css_class"} %></button>
+<%= link_to 'Show', @author, class: "btn btn-default outline" %>
+<%= link_to 'Back', authors_path, class: "btn btn-default outline" %>

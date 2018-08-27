@@ -1,10 +1,11 @@
 // Place all the styles related to the Authors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #table{
- margin-left: auto;
- margin-right: auto;
- width: 700px;
+  margin-left: 165px;
+  margin-right: auto;
+  width: 700px;
 }
 
 #button_tool{
@@ -15,7 +16,6 @@
 
 #new_author_button{
   top: 1000px;
-  //margin-left: 1000px;
 }
 
 #custom-search-input{
@@ -50,21 +50,41 @@
     font-size: 23px;
 }
 
-
-.btn {
-  border: 2px solid #b3b3b3;
-  background-color: #fffff;
-  padding: 2px 6px;
-  font-size: 16px;
-  cursor: pointer;
+body {
+  background-color : #ecf0f1
+}
+.outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .25s;
+}
+.btn-primary.outline {
+    color: #428bca;
+}
+.btn-success.outline {
+    color: #5cb85c;
+}
+.btn-info.outline {
+    color: #5bc0de;
+}
+.btn-warning.outline {
+    color: #f0ad4e;
+}
+.btn-danger.outline {
+    color: #d9534f;
+}
+.btn-primary.outline:hover,
+.btn-success.outline:hover,
+.btn-info.outline:hover,
+.btn-warning.outline:hover,
+.btn-danger.outline:hover {
+    color: #fff;
 }
 
-.btn-primary {
-  color: white;
+.btn-group{
+  left: 65px;
 }
 
-.btn-primary:hover {
-  border: 2px solid #b3b3b3;
-  background-color: #b3b3b3;
-  color: white;
+#header_names{
+  color: #0074D9;
 }
