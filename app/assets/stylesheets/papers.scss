@@ -2,104 +2,110 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#table{
+#table {
  margin-left: 165px;
  margin-right: auto;
  width: 1210px;
 }
 
-#button_tool{
+#header_names {
+  color: #0074D9;
+}
+
+#button_tool {
  margin-left: auto;
  margin-right: auto;
  width: 190px;
 }
 
-#new_paper_button{
+#new_paper_button {
   top: 100;
   margin-left: 1000px;
 }
 
-#custom-search-input{
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
+#custom-search-input {
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
 }
 
-#custom-search-input input{
-    border: 0;
-    box-shadow: none;
+#custom-search-input input {
+  border: 0;
+  box-shadow: none;
 }
 
-#custom-search-input button{
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
+#custom-search-input button {
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
 }
 
-#custom-search-input button:hover{
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
+#custom-search-input button:hover {
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
 }
 
-#custom-search-input .glyphicon-search{
-    font-size: 23px;
+#custom-search-input .glyphicon-search {
+  font-size: 23px;
 }
 
 #authors_boxed_list {
-  select, ul { height: 300px; overflow: auto; width: 300px; border: 3px solid #bfbfbf; }
-    ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
-    li { margin: 0; padding: 0; }
-    label { display: block; color: WindowText; background-color: 	transparent; margin: 0; padding: 0; width: 100%; }
-    label:hover { background-color: Highlight; color: HighlightText;
-  }
+  select,ul { height: 300px; overflow: auto; width: 300px; border: 3px solid #bfbfbf; }
+  ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
+  li { margin: 0; padding: 0; }
+  label { display: block; color: WindowText; background-color: transparent; margin: 0; padding: 0; width: 100%; }
+  label:hover { background-color: Highlight; color: HighlightText; }
 }
 
-#authors_boxed_list label input{
+#authors_boxed_list label input {
   margin-right: 5px;
   margin-left: 10px;
 }
 
 body {
-  background-color : #ecf0f1
+  background-color: #ecf0f1;
 }
+
 .outline {
-    background-color: transparent;
-    color: inherit;
-    transition: all .25s;
+  background-color: transparent;
+  color: inherit;
+  transition: all .25s;
 }
+
 .btn-primary.outline {
-    color: #428bca;
+  color: #428bca;
 }
+
 .btn-success.outline {
-    color: #5cb85c;
+  color: #5cb85c;
 }
+
 .btn-info.outline {
-    color: #5bc0de;
+  color: #5bc0de;
 }
+
 .btn-warning.outline {
-    color: #f0ad4e;
+  color: #f0ad4e;
 }
+
 .btn-danger.outline {
-    color: #d9534f;
+  color: #d9534f;
 }
+
 .btn-primary.outline:hover,
 .btn-success.outline:hover,
 .btn-info.outline:hover,
 .btn-warning.outline:hover,
 .btn-danger.outline:hover {
-    color: #fff;
+  color: #fff;
 }
 
-.btn-group{
+.btn-group {
   left: 8px;
-}
-
-#header_names{
-  color: #0074D9;
 }

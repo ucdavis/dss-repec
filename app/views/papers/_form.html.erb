@@ -31,8 +31,6 @@
     <%= form.text_field :paper_number %>
   </div>
 
-
-
   <div class="field">
     <h3> All Authors </h3>
     <div id="authors_boxed_list">
@@ -40,7 +38,6 @@
         <% Author.all.each do |author| %>
         <% checked = @paper.authors.include?(author) %>
         <span class="three columns alpha">
-        <label for="regularCheckbox">
           <label>
             <%= check_box_tag "paper[author_ids][]", author.id, checked %>
             <span class="gig-check"><%= author.name %></span>

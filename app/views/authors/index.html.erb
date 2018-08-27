@@ -1,52 +1,17 @@
 <%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p id="notice"><%= notice %></p>
 
 <h1> Author </h1><br>
 
-<%=form_tag authors_path,{:method=>'get', class:"container", role:"search"}  do%>
+<%=form_tag authors_path,{:method=>'get', class:"container", role:"search"}  do %>
 	<div class="row">
         <div class="col-md-6">
     		<h2>Author search field</h2>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                   <div class="form-group">
-                     <%=text_field_tag :search,"",class:"form-control",placeholder:"Author"%>
+                     <%=text_field_tag :search,"",class:"form-control",placeholder:"Author" %>
                   </div>
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
@@ -57,15 +22,13 @@
             </div>
         </div>
 	</div>
-<%end%>
+<% end %>
 
 <br><br>
 
 <div style="margin-left: 750px">
-  <%= link_to 'Create Author', new_author_path, class: "btn btn-default outline"%>
-</div>
-
-<br>
+  <%= link_to 'Create Author', new_author_path, class: "btn btn-default outline" %>
+</div><br>
 
 <table class="table table-bordered table-hover" id="table">
   <thead>
@@ -84,11 +47,10 @@
         <td>
           <div class="btn-group" id="button_tool">
             <%=link_to 'Show', author, class: "btn btn-default outline" %>
-            <%=link_to 'Edit', edit_author_path(author), class: "btn btn-default outline"%>
+            <%=link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
             <%=link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </div>
         </td>
-
       </tr>
     <% end %>
   </tbody>
