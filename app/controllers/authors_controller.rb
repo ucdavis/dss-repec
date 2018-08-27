@@ -52,7 +52,7 @@ class AuthorsController < ApplicationController
   def destroy
     @author.destroy
     respond_to do |format|
-      format.html { 
+      format.html {
         flash[:success] = "Author was successfully destroyed."
         redirect_to authors_url
       }

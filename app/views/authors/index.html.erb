@@ -2,9 +2,9 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1> Author </h1><br>
+<h1>Author</h1><br>
 
-<%=form_tag authors_path,{:method=>'get', class:"container", role:"search"}  do %>
+<%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
 	<div class="row">
         <div class="col-md-6">
     		<h2>Author search field</h2>
@@ -42,13 +42,13 @@
   <tbody>
     <% @authors.each do |author| %>
       <tr>
-        <td scope="row"> <%= author.name %></td>
-        <td scope="row"> <%= author.created_at %></td>
+        <td scope="row"><%= author.name %></td>
+        <td scope="row"><%= author.created_at %></td>
         <td>
           <div class="btn-group" id="button_tool">
-            <%=link_to 'Show', author, class: "btn btn-default outline" %>
-            <%=link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
-            <%=link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to 'Show', author, class: "btn btn-default outline" %>
+            <%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
+            <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </div>
         </td>
       </tr>
@@ -57,5 +57,5 @@
 </table>
 
 <div style="margin-left: 165px">
-    <%= will_paginate @authors, renderer: BootstrapPagination::Rails %> <br>
+    <%= will_paginate @authors, renderer: BootstrapPagination::Rails %>
 </div>
