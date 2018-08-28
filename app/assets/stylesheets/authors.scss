@@ -2,105 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#authors {
-  border-radius: 5px;
-  height: 35px;
-  width: 1115px;
-  background-color: #f2f2f2;
+#button_tool {
   margin-left: auto;
   margin-right: auto;
-  font-size: 15px;
-  color: #8c8c8c;
-  padding-left: 15px;
-  padding-top: 8px;
+  padding-left: 25px;
 }
 
-#table {
- margin-left: 165px;
- margin-right: auto;
- width: 1110px;
+#new_form {
+  padding-top: 250px;
 }
 
-#header_names {
-  color: #0074D9;
-}
-
-#button_tool {
- margin-left: auto;
- margin-right: auto;
- padding-left: 25px;
-}
-
-#new_author_button {
-  top: 1000px;
-}
-
-#custom-search-input {
-  padding: 3px;
-  border: solid 1px #E4E4E4;
-  border-radius: 6px;
-  background-color: #fff;
-}
-
-#custom-search-input input {
-  border: 0;
-  box-shadow: none;
-}
-
-#custom-search-input button {
-  margin: 2px 0 0 0;
-  background: none;
-  box-shadow: none;
-  border: 0;
-  color: #666666;
-  padding: 0 8px 0 10px;
-  border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover {
-  border: 0;
-  box-shadow: none;
-  border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search {
-  font-size: 23px;
-}
-
-.outline {
-  background-color: transparent;
-  color: inherit;
-  transition: all .25s;
-}
-
-.btn-primary.outline {
-  color: #428bca;
-}
-
-.btn-success.outline {
-  color: #5cb85c;
-}
-
-.btn-info.outline {
-  color: #5bc0de;
-}
-
-.btn-warning.outline {
-  color: #f0ad4e;
-}
-
-.btn-danger.outline {
-  color: #d9534f;
-}
-
-.btn-primary.outline:hover,
-.btn-success.outline:hover,
-.btn-info.outline:hover,
-.btn-warning.outline:hover,
-.btn-danger.outline:hover {
-  color: #fff;
-}
-
-.btn-group {
-  left: 65px;
+#create_new_author_button {
+  margin-left: 1162px;
+  padding-bottom: 20px;
 }

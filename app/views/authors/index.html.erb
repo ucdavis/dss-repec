@@ -2,60 +2,58 @@
 
 <p id="notice"><%= notice %></p>
 
-<p id="authors">Authors</p><br>
+<p id="tab_title">Authors</p><br>
 
 <%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
 	<div class="row">
-        <div class="col-md-6">
-					<h4>Author</h4>
-            <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                  <div class="form-group">
-                     <%=text_field_tag :search,"",class:"form-control",placeholder:"Author" %>
-                  </div>
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>
-        </div>
+		<div class="col-md-6">
+			<h4>Author</h4>
+				<div id="custom-search-input">
+						<div class="input-group col-md-12">
+							<div class="form-group">
+								<%=text_field_tag :search,"",class:"form-control",placeholder:"Author" %>
+							</div>
+						<span class="input-group-btn">
+							<button class="btn btn-info btn-lg" type="button">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</span>
+					</div>
+				</div>
+		</div>
 	</div>
 <% end %>
 
-<br><br><br>
-
-<div style="margin-left: 1162px">
-  <%= link_to 'Create Author', new_author_path, class: "btn btn-default outline" %>
-</div><br>
+<div id="create_new_author_button">
+	<%= link_to 'Create Author', new_author_path, class: "btn btn-default outline" %>
+</div>
 
 <table class="table table-bordered table-hover" id="table">
-  <thead>
-    <tr id="header_names">
-      <th scope="col">Authors</th>
-      <th scope="col">Published at</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
+	<thead>
+		<tr id="header_names">
+			<th scope="col">Authors</th>
+			<th scope="col">Published at</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @authors.each do |author| %>
-      <tr>
-        <td scope="row"><%= author.name %></td>
-        <td scope="row"><%= author.created_at %></td>
-        <td width="30%">
-          <div class="btn-group" id="button_tool">
-            <%= link_to 'Show', author, class: "btn btn-default outline" %>
-            <%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
-            <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @authors.each do |author| %>
+			<tr>
+				<td scope="row"><%= author.name %></td>
+				<td scope="row"><%= author.created_at %></td>
+				<td width="30%">
+					<div class="btn-group" id="button_tool">
+						<%= link_to 'Show', author, class: "btn btn-default outline" %>
+						<%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
+						<%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+					</div>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<div style="margin-left: 165px">
-    <%= will_paginate @authors, renderer: BootstrapPagination::Rails %>
+<div id="will_paginate">
+	<%= will_paginate @authors, renderer: BootstrapPagination::Rails %>
 </div>

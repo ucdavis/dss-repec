@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<h1>New Author</h1>
+<h1>New author</h1>
 
 <%= render 'form', author: @author %>
 
-<%= link_to 'Back', authors_path, class: "btn btn-default outline" %>
+<div id="new_form">
+  <%= link_to 'Back', authors_path, class: "btn btn-default outline back_button" %>
+</div>

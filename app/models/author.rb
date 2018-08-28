@@ -3,7 +3,7 @@ class Author < ApplicationRecord
 
   validates :name, :presence => true
 
-  def self.search(search)
+  def self.search(search = nil)
     if search
       where('name LIKE ?', "%#{search}%")
     else
