@@ -2,12 +2,12 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Author</h1><br>
+<p id="authors">Authors</p><br>
 
 <%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
 	<div class="row">
         <div class="col-md-6">
-    		<h2>Author search field</h2>
+					<h4>Author</h4>
             <div id="custom-search-input">
                 <div class="input-group col-md-12">
                   <div class="form-group">
@@ -24,9 +24,9 @@
 	</div>
 <% end %>
 
-<br><br>
+<br><br><br>
 
-<div style="margin-left: 750px">
+<div style="margin-left: 1162px">
   <%= link_to 'Create Author', new_author_path, class: "btn btn-default outline" %>
 </div><br>
 
@@ -44,7 +44,7 @@
       <tr>
         <td scope="row"><%= author.name %></td>
         <td scope="row"><%= author.created_at %></td>
-        <td>
+        <td width="30%">
           <div class="btn-group" id="button_tool">
             <%= link_to 'Show', author, class: "btn btn-default outline" %>
             <%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>

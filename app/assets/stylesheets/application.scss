@@ -14,3 +14,35 @@
  */
 
  @import 'bootstrap';
+
+ #navbar_header {
+   margin-right: 10px;
+ }
+
+ .nav {
+   list-style: none;
+   font-weight: bold;
+   margin-bottom: 10px;
+   width: 100%;
+   text-align: center;
+   background-color: #f2f2f2;
+   height: 50px;
+   color: #5bc0de;
+ }
+
+.navbar-brand {
+  color: #8c8c8c;
+}
+
+.nav > li {
+  padding-top: 0px;
+  min-height: 110px;
+  min-width: 110px;
+  text-align: center;
+  margin-left: 155px;
+}
+
+.nav > li.active {
+  color: #3c5a78;
+  font-size: 16px;
+}

@@ -14,11 +14,18 @@
   </head>
 
   <body>
+    <ul class="nav nav-pills" id="navbar_header">
+        <li class="<%= 'active' if current_page? "/RePEc/cda" %>"><%= link_to "RePEc", "/RePEc/cda", class: "navbar-brand"%></li>
+        <li class="<%= 'active' if current_page? controller: :papers %>"><%= link_to "Papers", papers_path, class: "navbar-brand"%></li>
+        <li class="<%= 'active' if current_page? controller: :authors %>"><%= link_to "Authors", authors_path, class: "navbar-brand"%></li>
+    </ul>
+
     <% flash.each do |name, msg| %>
       <div class="alert alert-<%= name %>">
         <%= msg %>
       </div>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

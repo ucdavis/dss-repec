@@ -2,10 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#table {
-  margin-left: 165px;
+#authors {
+  border-radius: 5px;
+  height: 35px;
+  width: 1115px;
+  background-color: #f2f2f2;
+  margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  font-size: 15px;
+  color: #8c8c8c;
+  padding-left: 15px;
+  padding-top: 8px;
+}
+
+#table {
+ margin-left: 165px;
+ margin-right: auto;
+ width: 1110px;
 }
 
 #header_names {
@@ -15,7 +28,7 @@
 #button_tool {
  margin-left: auto;
  margin-right: auto;
- width: 190px;
+ padding-left: 25px;
 }
 
 #new_author_button {
