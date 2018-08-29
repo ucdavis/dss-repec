@@ -4,7 +4,7 @@ class Paper < ApplicationRecord
 
   validates :title, :abstract, :presence => true
 
-  def self.title(title)
+  def self.title(title = nil)
     if title
       where('title LIKE ?', "%#{title}%")
     else

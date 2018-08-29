@@ -1,56 +1,60 @@
 <%= form_with(model: paper, local: true) do |form| %>
   <% if paper.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(paper.errors.count, "error") %>Prohibited this paper from being saved:</h2>
+      <h2><%= pluralize(paper.errors.count, "error") %>prohibited this paper from being saved:</h2>
 
       <ul>
-      <% paper.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% paper.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :abstract %>
-    <%= form.text_area :abstract, :size => "60x12" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords, size:40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :paper_number %>
-    <%= form.text_field :paper_number %>
-  </div>
-
-  <div class="field">
-    <h3> All Authors </h3>
-    <div id="authors_boxed_list">
-      <ul>
-        <% Author.all.each do |author| %>
-        <% checked = @paper.authors.include?(author) %>
-        <span class="three columns alpha">
-          <label>
-            <%= check_box_tag "paper[author_ids][]", author.id, checked %>
-            <span class="gig-check"><%= author.name %></span>
-          </label>
-        </span>
-      <% end %>
-      </ul>
+  <div id="form">
+    <div class="create form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
     </div>
-  </div>
 
-  <%= link_to 'New Author', new_author_path, class: "btn btn-default outline" %>
+    <div class="create form-group">
+      <%= form.label :abstract %>
+      <%= form.text_area :abstract, :size => "60x12", class: "form-control", placeholder: "Abstract" %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="create form-group">
+      <%= form.label :keywords %>
+      <%= form.text_field :keywords, size: 40, class: "form-control", placeholder: "Keywords" %>
+    </div>
+
+    <div class="create form-group">
+      <%= form.label :paper_number %>
+      <%= form.text_field :paper_number, class: "form-control", placeholder: "Paper number" %>
+    </div>
+
+    <div class="create form-group">
+      <h3>All Authors</h3>
+        <div id="authors_boxed_list">
+          <ul>
+            <% Author.all.each do |author| %>
+              <% checked = @paper.authors.include?(author) %>
+                <span class="three columns alpha">
+                  <label>
+                    <%= check_box_tag "paper[author_ids][]", author.id, checked %>
+                    <span class="gig-check"><%= author.name %></span>
+                  </label>
+                </span>
+            <% end %>
+          </ul>
+        </div>
+    </div>
+
+    <div id="create_new_author_button">
+      <%= link_to 'Create new author', new_author_path, class: "btn btn-default outline" %>
+    </div>
+
+    <div class="actions" id="submit_button">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>

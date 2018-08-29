@@ -2,64 +2,65 @@
 
 <p id="notice"><%= notice %></p>
 
-<p id="papers">Papers</p><br>
+<p id="tab_title">Papers</p><br>
 
 <%= form_tag papers_path, { :method => 'get', class: "container", role: "search" }  do %>
 	<div class="row">
-      <div class="col-md-6">
-				<h4>Title</h4>
-          <div id="custom-search-input">
-              <div class="input-group col-md-12">
-                  <div class="form-group">
-                     <%= text_field_tag :search, "", class: "form-control", placeholder: "Title" %>
-                   </div>
-                    <span class="input-group-btn">
-                      <button class="btn btn-info btn-lg" type="button">
-                          <i class="glyphicon glyphicon-search"></i>
-                      </button>
-                    </span>
-                </div>
-            </div>
-        </div>
+		<div class="col-md-6">
+			<h4>Title</h4>
+			<div id="custom-search-input">
+				<div class="input-group col-md-12">
+					<div class="form-group">
+						<%= text_field_tag :search, "", class: "form-control", placeholder: "Title" %>
+					</div>
+					<span class="input-group-btn">
+						<button class="btn btn-info btn-lg" type="button">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
 	</div>
-<% end %><br><br>
+<% end %>
 
-<div style="margin-left: 1095px">
-  <%= link_to 'Create Paper', new_paper_path, class: "btn btn-default outline" %>
-  <%= link_to 'Export', new_paper_path, class: "btn btn-default outline" %>
-</div><br>
+<div id="create_new_paper_export_button">
+	<%= link_to 'Create Paper', new_paper_path, class: "btn btn-default outline" %>
+	<%= link_to 'Export', new_paper_path, class: "btn btn-default outline" %>
+</div>
 
 <table class="table table-bordered table-hover" id="table">
-  <thead>
-    <tr id="header_names">
-      <th scope="col">Authors</th>
-      <th scope="col">Title</th>
-      <th scope="col">Published at</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
+	<thead>
+		<tr id="header_names">
+		<th scope="col">Authors</th>
+		<th scope="col">Title</th>
+		<th scope="col">Published at</th>
+		<th scope="col">Actions</th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @papers.each do |paper| %>
-      <tr>
-        <td scope="row"><% paper.authors.each do |author| %>
-              <%= author.name %><br>
-            <% end %>
-        </td>
-        <td scope="row"><%= paper.title %></td>
-        <td scope="row"><%= paper.created_at %></td>
-        <td width="20%">
-          <div class="btn-group" id="button_tool">
-            <%= link_to 'Show', paper, class: "btn btn-default outline" %>
-            <%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default outline" %>
-            <%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </div>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @papers.each do |paper| %>
+			<tr>
+				<td width="15%">
+					<% paper.authors.each do |author| %>
+						 	<%= author.name %><br>
+						<% end %>
+				</td>
+				<td scope="row"><%= paper.title %></td>
+				<td width="18%"><%= paper.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+				<td>
+					<div class="btn-group" id="button_tool">
+						<%= link_to 'Show', paper, class: "btn btn-default outline" %>
+						<%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default outline" %>
+						<%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+					</div>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<div style="margin-left: 165px">
-  <%= will_paginate @papers, renderer: BootstrapPagination::Rails %>
+<div id="will_paginate">
+	<%= will_paginate @papers, renderer: BootstrapPagination::Rails %>
 </div>

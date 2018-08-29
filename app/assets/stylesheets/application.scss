@@ -13,22 +13,22 @@
  *= require_self
  */
 
- @import 'bootstrap';
+@import 'bootstrap';
 
- #navbar_header {
-   margin-right: 10px;
- }
+#navbar_header {
+  margin-right: 10px;
+}
 
- .nav {
-   list-style: none;
-   font-weight: bold;
-   margin-bottom: 10px;
-   width: 100%;
-   text-align: center;
-   background-color: #f2f2f2;
-   height: 50px;
-   color: #5bc0de;
- }
+.nav {
+  list-style: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: #f2f2f2;
+  height: 50px;
+  color: #5bc0de;
+}
 
 .navbar-brand {
   color: #8c8c8c;
@@ -45,4 +45,90 @@
 .nav > li.active {
   color: #3c5a78;
   font-size: 16px;
+}
+
+#tab_title {
+  border-radius: 5px;
+  height: 35px;
+  width: 1115px;
+  background-color: #f2f2f2;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  color: #8c8c8c;
+  padding-left: 15px;
+  padding-top: 8px;
+}
+
+#table {
+  margin-left: 165px;
+  margin-right: auto;
+  width: 1110px;
+}
+
+#header_names {
+  color: #0074D9;
+}
+
+#custom-search-input {
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#custom-search-input input {
+  border: 0;
+  box-shadow: none;
+}
+
+#custom-search-input button {
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover {
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search {
+  font-size: 23px;
+}
+
+.row {
+  padding-bottom: 60px;
+}
+
+.outline {
+  background-color: transparent;
+  color: inherit;
+  transition: all .25s;
+}
+
+.btn-group {
+  left: 8px;
+}
+
+.create.form-group {
+  margin-left: 160px;
+  margin-right: 170px;
+}
+
+#submit_button {
+  margin-left: 160px;
+}
+
+.btn-default.outline.back_button {
+  margin-left: 1215px;
+}
+
+#will_paginate {
+  margin-left: 165px;
 }
