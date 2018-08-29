@@ -2,10 +2,24 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @author.name %>
-</p>
+<h1>Showing author</h1>
 
-<%= link_to 'Edit', edit_author_path(@author), class: "btn btn-default outline" %>
-<%= link_to 'Back', authors_path, class: "btn btn-default outline" %>
+<table class="table table-bordered" id="show_table">
+  <tr>
+    <th id="header_names">Author</th>
+    <td><%= @author.name %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Published at</th>
+    <td><%= @author.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Updated Date</th>
+    <td><%= @author.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+  </tr>
+</table>
+
+<div id="show_buttons">
+  <%= link_to 'Edit', edit_author_path(@author), class: "btn btn-default outline" %>
+  <%= link_to 'Back', authors_path, class: "btn btn-default outline" %>
+</div>

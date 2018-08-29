@@ -42,13 +42,14 @@
 	<tbody>
 		<% @papers.each do |paper| %>
 			<tr>
-				<td scope="row"><% paper.authors.each do |author| %>
-					<%= author.name %><br>
-					<% end %>
+				<td width="15%">
+					<% paper.authors.each do |author| %>
+						 	<%= author.name %><br>
+						<% end %>
 				</td>
 				<td scope="row"><%= paper.title %></td>
-				<td scope="row"><%= paper.created_at %></td>
-				<td width="20%">
+				<td width="18%"><%= paper.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+				<td>
 					<div class="btn-group" id="button_tool">
 						<%= link_to 'Show', paper, class: "btn btn-default outline" %>
 						<%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default outline" %>

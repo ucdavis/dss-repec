@@ -16,4 +16,4 @@ class BrowserController < ApplicationController
   #   def paper_params
   #     params.require(:paper).permit(:Author, :Title)
   #   end
-end
+end 

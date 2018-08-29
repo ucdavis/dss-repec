@@ -1,24 +1,46 @@
+<%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @paper.title %>
-</p>
+<h1>Showing paper</h1>
 
-<p>
-  <strong>Abstract:</strong>
-  <%= @paper.abstract %>
-</p>
+<table class="table table-bordered" id="show_table">
+  <tr>
+    <th id="header_names">Title</th>
+    <td><%= @paper.title %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Authors</th>
+    <td>
+      <ul><% @paper.authors.each do |author| %>
+          <li><%= author.name %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th id="header_names">Abstract</th>
+    <td><%= @paper.abstract %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Keywords</th>
+    <td><%= @paper.keywords %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Paper Number</th>
+    <td><%= @paper.paper_number %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Creation Date</th>
+    <td><%= @paper.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Updated Date</th>
+    <td><%= @paper.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Keywords:</strong>
-  <%= @paper.keywords %>
-</p>
-
-<p>
-  <strong>Creation Date:</strong>
-  <%= @paper.creation_date %>
-</p>
-
-<%= link_to 'Edit', edit_paper_path(@paper), class: "btn btn-default outline" %>
-<%= link_to 'Back', papers_path, class: "btn btn-default outline" %>
+<div id="show_buttons">
+  <%= link_to 'Edit', edit_paper_path(@paper), class: "btn btn-default outline" %>
+  <%= link_to 'Back', papers_path, class: "btn btn-default outline" %>
+</div>
