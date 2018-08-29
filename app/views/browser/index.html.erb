@@ -2,19 +2,19 @@
   <%= link_to 'RePEc', "/RePEc/cda" %>
 
 <% elsif pathway_path == "/RePEc/cda" %>
-  <%= link_to '[To Parent Directory]', "/RePEc" %> <br /><br />
+  <%= link_to '[To Parent Directory]', "/RePEc" %><br>
 
-  <%= link_to 'cdaarch.rdf' %> <br /><br />
-  <%= link_to 'cdaseri.rdf' %> <br /><br />
-  <%= link_to 'cda', "/RePEc/cda/wpaper" %>
+  <%= link_to 'cdaarch.rdf' %><br>
+  <%= link_to 'cdaseri.rdf' %><br>
+  <%= link_to 'cda', "/RePEc/cda/wpaper" %><br>
 
 <% elsif pathway_path == "/RePEc/cda/wpaper" %>
-  <%= link_to '[To Parent Directory]', "/RePEc/cda" %> <br /><br />
+  <%= link_to '[To Parent Directory]', "/RePEc/cda" %><br>
 
   <% Paper.all.each do |paper| %>
-    <a href="some_link"><%= paper.paper_number %>.rdf</a><br /><br />
+    <a href="some_link"><%= paper.paper_number %>.rdf</a><br>
   <% end %>
 
 <% else %>
-     <%= link_to 'RePEc', "/RePEc/cda" %>
+  <%= link_to 'RePEc', "/RePEc/cda" %>
 <% end %>

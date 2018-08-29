@@ -9,7 +9,7 @@
 }
 
 #authors_boxed_list {
-  select,ul { height: 400px; overflow: auto; width: 300px; border: 1px solid #bfbfbf; border-radius: 5px;}
+  select,ul { height: 400px; overflow: auto; width: 300px; border: 1px solid #bfbfbf; border-radius: 5px; }
   ul { list-style-type: none; margin: 0; padding: 0; overflow-x: hidden; }
   li { margin: 0; padding: 0; }
   label { color: #262626; background-color: transparent; margin: 0; padding: 1px; width: 100%; }
