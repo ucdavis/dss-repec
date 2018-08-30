@@ -4,9 +4,9 @@ class Paper < ApplicationRecord
 
   validates :title, :abstract, :presence => true
 
-  def self.title(title = nil)
-    if title
-      where('title LIKE ?', "%#{title}%")
+  def self.search(search = nil)
+    if search
+      where('title LIKE ?', "%#{search}%")
     else
       all
     end
