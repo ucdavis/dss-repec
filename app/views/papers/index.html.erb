@@ -32,6 +32,7 @@
 <table class="table table-bordered table-hover" id="table">
   <thead>
     <tr id="header_names">
+      <th scope="col">Paper Number</th>
       <th scope="col">Authors</th>
       <th scope="col">Title</th>
       <th scope="col">Published at</th>
@@ -42,6 +43,7 @@
   <tbody>
     <% @papers.each do |paper| %>
       <tr>
+        <td scope="row"><%= paper.paper_number %></td>
         <td width="15%">
           <% paper.authors.each do |author| %>
             <%= author.name %><br>
@@ -53,7 +55,7 @@
           <div class="btn-group" id="button_tool">
             <%= link_to 'Show', paper, class: "btn btn-default outline" %>
             <%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default outline" %>
-            <%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure you want ?' }, class: "btn btn-danger" %>
           </div>
         </td>
       </tr>

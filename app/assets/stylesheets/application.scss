@@ -125,10 +125,16 @@
   margin-left: 160px;
 }
 
-.btn-default.outline.back_button {
-  margin-left: 1215px;
+h1 {
+  position: relative;
+  top: 160px;
+  left: 300px;
 }
 
 #will_paginate {
   margin-left: 165px;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }

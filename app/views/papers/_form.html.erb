@@ -1,7 +1,7 @@
 <%= form_with(model: paper, local: true) do |form| %>
   <% if paper.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(paper.errors.count, "error") %>prohibited this paper from being saved:</h2>
+      <h2><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
 
       <ul>
         <% paper.errors.full_messages.each do |message| %>
@@ -14,7 +14,7 @@
   <div id="form">
     <div class="create form-group">
       <%= form.label :title %>
-      <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title", size: 100 %>
     </div>
 
     <div class="create form-group">
@@ -24,12 +24,12 @@
 
     <div class="create form-group">
       <%= form.label :keywords %>
-      <%= form.text_field :keywords, size: 40, class: "form-control", placeholder: "Keywords" %>
+      <%= form.text_field :keywords, class: "form-control", placeholder: "Keywords", size: 100 %>
     </div>
 
     <div class="create form-group">
       <%= form.label :paper_number %>
-      <%= form.text_field :paper_number, class: "form-control", placeholder: "Paper number" %>
+      <%= form.text_field :paper_number, class: "form-control", placeholder: "Paper number", size: 100 %>
     </div>
 
     <div class="create form-group">

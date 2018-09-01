@@ -3,13 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #button_tool {
-  margin-left: auto;
+  margin-left: 75px;
   margin-right: auto;
   padding-left: 25px;
 }
 
 #new_form {
-  padding-top: 250px;
+  position: fixed;
+  bottom: 380px;
+  right: 397px;
 }
 
 #create_new_author_button {
@@ -17,37 +19,51 @@
   padding-bottom: 20px;
 }
 
-h1 {
-  position: absolute;
-  top: 200px;
-  left: 155px;
-}
-
 #form {
-  position: relative;
+  position: absolute;
   top: 250px;
   padding-bottom: 30px;
+  padding-top: 60px;
+  margin-left: 150px;
+  margin-right: auto;
 }
 
 #show_table {
-  margin-top: 250px;
-  margin-left: 165px;
+  table-layout: fixed;
+  margin-top: 200px;
+  margin-left: 310px;
   margin-right: auto;
-  width: 1110px;
-}
-
-#show_buttons {
-  padding-top: 18px;
-  margin-left: 165px;
-  padding-bottom: 100px;
+  width: 730px;
 }
 
 #show_table th {
   width: 25%;
 }
 
+
 #edit_form_button {
-  padding-top: 250px;
-  margin-left: 1150px;
-  padding-bottom: 40px;
+  position: fixed;
+  bottom: 380px;
+  right: 397px
+}
+
+#show_form_button {
+  margin-left: 310px;
+  margin-top: 40px;
+}
+
+#error_explanation {
+  position: fixed;
+  height: 110px;
+  padding-bottom: 10px;
+  width: 1800px;
+  bottom: 650px;
+}
+
+#error_explanation h3 {
+  margin-left: 90px;
+}
+
+#error_explanation ul li {
+  margin-left: 90px;
 }

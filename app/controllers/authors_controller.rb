@@ -23,8 +23,8 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.save
         format.html {
-            flash[:success] = "Author was successfully created."
-            redirect_to @author
+          flash[:success] = "Author was successfully created."
+          redirect_to @author
         }
         format.json { render :show, status: :created, location: @author }
       else
@@ -38,7 +38,7 @@ class AuthorsController < ApplicationController
     respond_to do |format|
       if @author.update(author_params)
         format.html {
-          flash[:success] = "Paper was successfully updated."
+          flash[:success] = "Author was successfully updated."
           redirect_to @author
         }
         format.json { render :show, status: :ok, location: @author }
