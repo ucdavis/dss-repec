@@ -1,6 +1,6 @@
 <%= form_with(model: paper, local: true) do |form| %>
   <% if paper.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger" id="error_explanation">
       <h2><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
 
       <ul>
