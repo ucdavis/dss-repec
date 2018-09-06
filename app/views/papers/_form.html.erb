@@ -28,15 +28,15 @@
     </div>
 
     <div class="create form-group">
-      <%= form.label :paper_number %>
-      <%= form.text_field :paper_number, class: "form-control", placeholder: "Paper number", size: 100 %>
+      <%= form.label :paper_length %>
+      <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length", size: 100 %>
     </div>
 
     <div class="create form-group">
       <h3>All Authors</h3>
         <div id="authors_boxed_list">
           <ul>
-            <% Author.all.each do |author| %>
+            <% Author.order('lower(name)').all.each do |author| %>
               <% checked = @paper.authors.include?(author) %>
                 <span class="three columns alpha">
                   <label>

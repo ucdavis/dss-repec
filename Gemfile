@@ -22,6 +22,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1'
 gem 'will_paginate-bootstrap'
+gem 'twitter-bootstrap-rails-confirm'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

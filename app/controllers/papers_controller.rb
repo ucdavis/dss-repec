@@ -11,7 +11,6 @@ class PapersController < ApplicationController
   # GET /papers/1.json
   def show
     @paper = Paper.find(params[:id])
-    @author = Author.all
   end
 
   # GET /papers/new
@@ -28,6 +27,8 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
+
+    @paper.paper_number = Paper.maximum("paper_number") + 1
 
     respond_to do |format|
       if @paper.save
@@ -81,6 +82,6 @@ class PapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paper_params
-      params.require(:paper).permit(:title, :text, :paper_number, :abstract, :keywords, author_ids: [])
+      params.require(:paper).permit(:title, :text, :paper_number, :paper_length, :abstract, :keywords, author_ids: [])
     end
 end
