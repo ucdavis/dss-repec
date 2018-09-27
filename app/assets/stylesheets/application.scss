@@ -47,7 +47,7 @@
   font-size: 16px;
 }
 
-#tab_title {
+#tab-title {
   border-radius: 5px;
   height: 35px;
   width: 1115px;
@@ -137,4 +137,40 @@ h1 {
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+@media screen and (max-width: 699px) {
+  #table {
+    margin-left: 25px;
+  }
+  .nav {
+    width: 170%;
+  }
+  #will_paginate {
+    margin-left: 25px;
+  }
+  #tab-title {
+    display: none;
+  }
+  body .row {
+      margin-right: -5px;
+      margin-left: -75px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #table {
+    margin-left: 40px;
+    margin-right: auto;
+  }
+  .nav {
+    width: 320%;
+  }
+  #will_paginate {
+    margin-left: 40px;
+  }
+  body .row {
+    margin-right: -180px;
+    margin-left: 0px;
+  }
 }

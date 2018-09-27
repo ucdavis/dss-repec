@@ -14,3 +14,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// Override the default confirm dialog of Rails
+Rails.handleConfirm = link => {
+  if (link.data('confirm') === undefined){
+    return true
+  }
+  showSweetAlertConfirmationDialog(link)
+  return false
+}

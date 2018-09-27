@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<p id="tab_title">Papers</p><br>
+<p id="tab-title">Papers</p><br>
 
 <%= form_tag papers_path, { :method => 'get', class: "container", role: "search" }  do %>
   <div class="row">
@@ -24,9 +24,8 @@
   </div>
 <% end %>
 
-<div id="create_new_paper_export_button">
+<div id="create_new_paper">
   <%= link_to 'Create Paper', new_paper_path, class: "btn btn-default outline" %>
-  <%= link_to 'Export', new_paper_path, class: "btn btn-default outline" %>
 </div>
 
 <table class="table table-bordered table-hover" id="table">
@@ -48,7 +47,7 @@
           <% end %>
         </td>
         <td scope="row"><%= paper.title %></td>
-        <td width="21%"><%= paper.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+        <td width="21%"><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
         <td>
           <div class="btn-group" id="button_tool">
             <%= link_to 'Show', paper, class: "btn btn-default outline" %>
@@ -62,5 +61,5 @@
 </table>
 
 <div id="will_paginate">
-  <%= will_paginate @papers, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @papers, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, previous_label: "<<", next_label: ">>" %>
 </div>

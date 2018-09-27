@@ -11,11 +11,11 @@
   </tr>
   <tr>
     <th id="header_names">Published at</th>
-    <td><%= @author.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+    <td><%= @author.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
   </tr>
   <tr>
     <th id="header_names">Updated at</th>
-    <td><%= @author.updated_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+    <td><%= @author.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
   </tr>
 </table>
 

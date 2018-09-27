@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -14,6 +17,7 @@
   </head>
 
   <body>
+
     <ul class="nav nav-pills" id="navbar_header">
       <li class="<%= 'active' if current_page? "/RePEc/cda" %>"><%= link_to "RePEc", "/RePEc/cda", class: "navbar-brand" %></li>
       <li class="<%= 'active' if current_page? controller: :papers %>"><%= link_to "Papers", papers_path, class: "navbar-brand" %></li>

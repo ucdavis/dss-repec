@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<p id="tab_title">Authors</p><br>
+<p id="tab-title">Authors</p><br>
 
 <%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
   <div class="row">
@@ -41,11 +41,12 @@
     <% @authors.each do |author| %>
       <tr>
         <td scope="row"><%= author.name %></td>
-        <td scope="row"><%= author.created_at.to_time.strftime('%B %e, %Y at %l:%M %p') %></td>
+        <td scope="row"><%= author.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
         <td width="30%">
           <div class="btn-group" id="button_tool">
             <%= link_to 'Show', author, class: "btn btn-default outline" %>
             <%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
+
             <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </div>
         </td>
@@ -55,5 +56,5 @@
 </table>
 
 <div id="will_paginate">
-  <%= will_paginate @authors, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @authors, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, previous_label: "<<", next_label: ">>" %>
 </div>
