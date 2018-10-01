@@ -68,14 +68,26 @@
   margin-left: 90px;
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (max-width: 1020px) {
   #create_new_author_button {
-    margin-left: 1020px;
+    margin-left: 1560px;
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 780px) {
+  #create_new_author_button {
+    margin-left: 1161px;
+  }
+}
+
+@media screen and (max-width: 480px) {
   #create_new_author_button {
     margin-left: 1035px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
+  #create_new_author_button {
+    margin-left: 1560px;
   }
 }

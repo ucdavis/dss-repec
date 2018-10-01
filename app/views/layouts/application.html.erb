@@ -17,12 +17,13 @@
   </head>
 
   <body>
-
-    <ul class="nav nav-pills" id="navbar_header">
-      <li class="<%= 'active' if current_page? "/RePEc/cda" %>"><%= link_to "RePEc", "/RePEc/cda", class: "navbar-brand" %></li>
-      <li class="<%= 'active' if current_page? controller: :papers %>"><%= link_to "Papers", papers_path, class: "navbar-brand" %></li>
-      <li class="<%= 'active' if current_page? controller: :authors %>"><%= link_to "Authors", authors_path, class: "navbar-brand" %></li>
-    </ul>
+    <% if controller_name == "papers" or controller_name == "authors"%>
+      <ul class="nav nav-pills" id="navbar_header">
+        <li class="<%= 'active' if current_page? "/RePEc/cda" %>"><%= link_to "RePEc", "/RePEc/cda", class: "navbar-brand" %></li>
+        <li class="<%= 'active' if current_page? controller: :papers %>"><%= link_to "Papers", papers_path, class: "navbar-brand" %></li>
+        <li class="<%= 'active' if current_page? controller: :authors %>"><%= link_to "Authors", authors_path, class: "navbar-brand" %></li>
+      </ul>
+    <% end %>
 
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> alert-dismissible">
