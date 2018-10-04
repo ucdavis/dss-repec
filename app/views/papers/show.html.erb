@@ -31,6 +31,14 @@
     <td><%= @paper.paper_length %></td>
   </tr>
   <tr>
+    <th id="header_names">Classification</th>
+    <td><%= @paper.classification_jel %></td>
+  </tr>
+  <tr>
+    <th id="header_names">Creation Date</th>
+    <td><%= @paper.creation_date%></td>
+  </tr>
+  <tr>
     <th id="header_names">Published at</th>
     <td><%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
   </tr>

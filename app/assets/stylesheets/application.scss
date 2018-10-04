@@ -10,13 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui
  *= require_self
  */
 
 @import 'bootstrap';
 
-#navbar_header {
-  margin-right: 10px;
+#navbar_header li {
+  margin-left: 0px;
 }
 
 .nav {
@@ -139,9 +140,9 @@ h1 {
   @extend .alert-danger;
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1024px) {
   #table {
-    width: 1650px;
+
     margin-left: 25px;
   }
   .nav {
@@ -156,6 +157,9 @@ h1 {
   body .row {
       margin-right: -200px;
       margin-left: -40px;
+  }
+  h1 {
+    left: 160px;
   }
 }
 
@@ -195,6 +199,9 @@ h1 {
     margin-right: -180px;
     margin-left: 0px;
   }
+  h1 {
+    left: 50px;
+  }
 }
 
 @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
@@ -214,5 +221,8 @@ h1 {
   body .row {
       margin-right: -200px;
       margin-left: -40px;
+  }
+  h1 {
+    left: 160px;
   }
 }

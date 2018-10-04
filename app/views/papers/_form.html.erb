@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <%= form.text_field :date, class: "form-control", id: "datepicker" %>
+
+  <script>
+   $(function() {
+   $( "#datepicker" ).datepicker();
+   });
+  </script>
+
   <div id="form">
     <div class="create form-group">
       <%= form.label :title %>
@@ -25,6 +33,18 @@
     <div class="create form-group">
       <%= form.label :keywords %>
       <%= form.text_field :keywords, class: "form-control", placeholder: "Keywords", size: 100 %>
+    </div>
+
+    <div class="create form-group">
+      <%= form.label :creation_date %>
+      <%= form.text_field :creation_date, "id" => 'datepicker', class: "form-control", placeholder: "Creation Date", size: 100 %>
+    </div>
+
+
+
+    <div class="create form-group">
+      <%= form.label :classification %>
+      <%= form.text_field :classification_jel, class: "form-control", placeholder: "Classification", size: 100 %>
     </div>
 
     <div class="create form-group">
@@ -50,7 +70,7 @@
     </div>
 
     <div id="create_new_author_button">
-      <%= link_to 'Create new author', new_author_path, class: "btn btn-default outline" %>
+      <%= link_to 'Create new author', new_author_path, class: "btn btn-secondary" %>
     </div>
 
     <div class="actions" id="submit_button">
