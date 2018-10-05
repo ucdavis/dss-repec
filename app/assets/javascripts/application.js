@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery-ui/datepicker
 //= require_tree .
 
 // Override the default confirm dialog of Rails

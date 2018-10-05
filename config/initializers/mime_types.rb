@@ -4,3 +4,4 @@
 # Mime::Type.register "text/richtext", :rtf
 
 Mime::Type.register "text/rdf", :rdf
+Mime::Type.register "application/pdf", :pdf

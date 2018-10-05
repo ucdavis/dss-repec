@@ -4,6 +4,11 @@
 
 <h1>Showing paper</h1>
 
+<%= @paper.file.nil? %>
+<% if @paper.file.nil? %>
+  <%= link_to 'View file', url_for(@paper.file) %>
+<% end %>
+
 <table class="table table-bordered" id="show_table">
   <tr>
     <th id="header_names">Title</th>
@@ -38,7 +43,6 @@
     <th id="header_names">Creation Date</th>
     <td><%= @paper.creation_date%></td>
   </tr>
-  <tr>
     <th id="header_names">Published at</th>
     <td><%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
   </tr>

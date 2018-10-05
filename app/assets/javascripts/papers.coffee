@@ -2,4 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-$('#paper_published_on').datepicker (dateFormat: 'dd-mm-yy')
+ $('#datepicker').datepicker();
