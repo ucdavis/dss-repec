@@ -10,13 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require rails-ujs
+//= require jquery_ujs
+//= require jquery3
 //= require activestorage
 //= require turbolinks
-//= require jquery-ui/datepicker
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
+
+$ -> # do you have this?
+  alert 'test'
+
+$("#checkAll").select_all();
 
 // Override the default confirm dialog of Rails
 Rails.handleConfirm = link => {

@@ -5,31 +5,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
   </head>
 
   <body>
-    <% if controller_name == "papers" or controller_name == "authors"%>
-      <ul class="nav nav-pills" id="navbar_header">
-        <li class="<%= 'active' if current_page? "/RePEc/cda" %>"><%= link_to "RePEc", "/RePEc/cda", class: "navbar-brand" %></li>
-        <li class="<%= 'active' if current_page? controller: :papers %>"><%= link_to "Papers", papers_path, class: "navbar-brand" %></li>
-        <li class="<%= 'active' if current_page? controller: :authors %>"><%= link_to "Authors", authors_path, class: "navbar-brand" %></li>
-      </ul>
-    <% end %>
+    <%= render 'shared/nav' %>
 
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> alert-dismissible">
         <%= value %>
       </div>
     <% end %>
+
 
     <%= yield %>
   </body>

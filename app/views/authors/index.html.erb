@@ -1,60 +1,66 @@
 <%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p id="tab-title">Authors</p><br>
-
-<%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
-  <div class="row">
-    <div class="col-md-6">
-      <h4>Author</h4>
-        <div id="custom-search-input">
-          <div class="input-group col-md-12">
-            <div class="form-group">
-              <%=text_field_tag :search,"",class:"form-control",placeholder:"Author" %>
-            </div>
-            <span class="input-group-btn">
-              <button class="btn btn-info btn-lg" type="button">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </span>
-          </div>
-        </div>
-    </div>
-  </div>
-<% end %>
-
-<div id="create_new_author_button">
-  <%= link_to 'Create Author', new_author_path, class: "btn btn-default outline" %>
+<div id="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="active">
+    Articles
+    </li>
+  </ol>
 </div>
 
-<table class="table table-bordered table-hover table-fixed-header" id="table">
-  <thead>
-    <tr id="header_names">
-      <th scope="col">Authors</th>
-      <th scope="col">Published at</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
+<div data-behavior="batch-actions-container">
+  <div id="actions">
+    <div class="float-left">
+      <%= link_to 'Select all', new_author_path, class: "btn btn-outline-secondary" %>
+      <a class="btn btn-outline-secondary" data-behavior="batch-actions-select batch-actions-select-none" href="#">Deselect all</a>
+    </div>
+    <div class="float-right">
+      <%= link_to 'Create Author', new_author_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @authors.each do |author| %>
+<%= form_tag destroy_multiple_authors_path, method: :delete do %>
+  <div id="table" class="table-responsive">
+    <table class="table table-bordered table-hover">
+    <thead>
       <tr>
-        <td scope="row"><%= author.name %></td>
-        <td scope="row"><%= author.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
-        <td width="30%">
-          <div class="btn-group" id="button_tool">
-            <%= link_to 'Show', author, class: "btn btn-default outline" %>
-            <%= link_to 'Edit', edit_author_path(author), class: "btn btn-default outline" %>
-
-            <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          </div>
-        </td>
+        <th></th>
+        <th scope="col">Authors</th>
+        <th scope="col">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td align="center">
+            <%= check_box_tag "authors[]", author.id, false, class: 'selectable' %>
+          </td>
+          <td scope="row"><%= author.name %></td>
+          <td>
+            <div class="btn-group float-right">
+              <%= link_to 'Show', author, class: "btn btn-outline-secondary btn-sm" %>
+              <%= link_to 'Edit', edit_author_path(author), class: "btn btn-outline-secondary outline btn-sm" %>
+              <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
 
-<div id="will_paginate">
-  <%= will_paginate @authors, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0, previous_label: "<<", next_label: ">>" %>
+  <div class="pagination-entries float-right hidden-xs">
+    Showing <%= @authors.each.count %> out of <%= @authors.count %> authors
+  </div>
+
+<%= submit_tag "Destroy", method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<% end %>
+
+  <div>
+    <%= will_paginate @authors, renderer: BootstrapPagination::Rails  %>
+  </div>
+
 </div>

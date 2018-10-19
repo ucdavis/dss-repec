@@ -60,6 +60,16 @@ class AuthorsController < ApplicationController
     end
   end
 
+  def destroy_multiple
+    Author.destroy(params[:authors])
+
+    respond_to do |format|
+      format.html { redirect_to authors_path }
+      format.json { head :no_content }
+    end
+
+  end
+
 private
   def set_author
     @author = Author.find(params[:id])

@@ -10,219 +10,39 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require jquery-ui/datepicker
  *= require_self
  */
 
 @import 'bootstrap';
 
-#navbar_header li {
-  margin-left: 0px;
-}
-
-.nav {
-  list-style: none;
-  font-weight: bold;
-  margin-bottom: 10px;
-  width: 100%;
-  text-align: center;
-  background-color: #f2f2f2;
-  height: 50px;
-  color: #5bc0de;
-}
-
-.navbar-brand {
-  color: #8c8c8c;
-}
-
-.nav > li {
-  padding-top: 0px;
-  min-height: 110px;
-  min-width: 110px;
-  text-align: center;
-  margin-left: 155px;
-}
-
-.nav > li.active {
-  color: #3c5a78;
-  font-size: 16px;
-}
-
-#tab-title {
-  border-radius: 5px;
-  height: 35px;
-  width: 1115px;
-  background-color: #f2f2f2;
+.container {
+  margin-right: auto;
   margin-left: auto;
-  margin-right: auto;
-  font-size: 15px;
-  color: #8c8c8c;
   padding-left: 15px;
-  padding-top: 8px;
+  padding-right: 15px;
 }
 
-#table {
-  margin-left: 165px;
-  margin-right: auto;
-  width: 1110px;
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
 
-#header_names {
+table th {
   color: #0074D9;
 }
 
-#custom-search-input {
-  padding: 3px;
-  border: solid 1px #E4E4E4;
-  border-radius: 6px;
-  background-color: #fff;
+.navbar {
+  margin-bottom: 20px;
+  border: 1px solid #e1e6ea;
 }
 
-#custom-search-input input {
-  border: 0;
-  box-shadow: none;
+#actions {
+  margin-top: 150px;
 }
 
-#custom-search-input button {
-  margin: 2px 0 0 0;
-  background: none;
-  box-shadow: none;
-  border: 0;
-  color: #666666;
-  padding: 0 8px 0 10px;
-  border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover {
-  border: 0;
-  box-shadow: none;
-  border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search {
-  font-size: 23px;
-}
-
-.row {
-  padding-bottom: 60px;
-}
-
-.outline {
-  background-color: transparent;
-  color: inherit;
-  transition: all .25s;
-}
-
-.btn-group {
-  left: 8px;
-}
-
-.create.form-group {
-  margin-left: 160px;
-  margin-right: 170px;
-}
-
-#submit_button {
-  margin-left: 160px;
-}
-
-h1 {
-  position: relative;
-  top: 160px;
-  left: 300px;
-}
-
-#will_paginate {
-  margin-left: 165px;
-}
-
-.alert-alert {
-  @extend .alert-danger;
-}
-
-@media screen and (max-width: 1024px) {
-  #table {
-
-    margin-left: 25px;
-  }
-  .nav {
-    width: 170%;
-  }
-  #will_paginate {
-    margin-left: 25px;
-  }
-  #tab-title {
-    display: none;
-  }
-  body .row {
-      margin-right: -200px;
-      margin-left: -40px;
-  }
-  h1 {
-    left: 160px;
-  }
-}
-
-@media screen and (max-width: 780px) {
-  #table {
-    width: 1250px;
-    margin-left: 25px;
-  }
-  .nav {
-    width: 170%;
-  }
-  #will_paginate {
-    margin-left: 25px;
-  }
-  #tab-title {
-    display: none;
-  }
-  body .row {
-      margin-right: -400px;
-      margin-left: -40px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #table {
-    width: 1115px;
-    margin-left: 40px;
-    margin-right: auto;
-  }
-  .nav {
-    width: 320%;
-  }
-  #will_paginate {
-    margin-left: 40px;
-  }
-  body .row {
-    margin-right: -180px;
-    margin-left: 0px;
-  }
-  h1 {
-    left: 50px;
-  }
-}
-
-@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
-  #table {
-    width: 1650px;
-    margin-left: 25px;
-  }
-  .nav {
-    width: 170%;
-  }
-  #will_paginate {
-    margin-left: 25px;
-  }
-  #tab-title {
-    display: none;
-  }
-  body .row {
-      margin-right: -200px;
-      margin-left: -40px;
-  }
-  h1 {
-    left: 160px;
-  }
+#actions .float-left{
+  margin-bottom: 20px;
 }
