@@ -1,24 +1,25 @@
 <div class="container">
-<%= form_with(model: author, local: true) do |form| %>
-  <% if author.errors.any? %>
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
     <div  class="alert alert-danger" id="error_explanation">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <h4><%= pluralize(author.errors.count, "error") %> prohibited this author from being saved:</h4>
+      <h4><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h4>
 
       <ul>
-        <% author.errors.full_messages.each do |message| %>
+        <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-    <div class="create form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control", placeholder:"Name", size: 100 %>
-    </div>
+  <div class="create form-group">
+    <%= form.label :loginid %>
+    <%= form.text_field :loginid, class: "form-control", placeholder:"Loginid"%>
+  </div>
+
     <div class="actions" id="submit_button">
       <%= form.submit class: "btn btn-secondary" %>
     </div>

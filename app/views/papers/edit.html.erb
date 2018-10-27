@@ -1,10 +1,5 @@
 <%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<h1>Editing paper</h1>
-
-<%= render 'form', paper: @paper %>
-
-<div id="edit_form_button">
-  <%= link_to 'Show', @paper, class: "btn btn-default outline" %>
-  <%= link_to 'Back', papers_path, class: "btn btn-default outline" %>
+<div class="container">
+  <%= render 'form', paper: @paper %>
 </div>

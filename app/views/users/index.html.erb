@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="container">
-  <%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
+  <%= form_tag users_path, { :method => 'get', class: "container", role: "search" }  do %>
   <div class="main">
     <div class="input-group">
-      <%=text_field_tag :search, params[:search], class:"form-control", placeholder:"Search for authors" %>
+      <%=text_field_tag :search, params[:search], class:"form-control", placeholder:"Search for users" %>
       <div class="input-group-append">
         <button class="btn btn-dark" type="button">
           <i class="fa fa-search"></i>
@@ -19,13 +19,13 @@
       <button type="button" id="check_all" onclick="toggleButton()" class="btn btn-outline-secondary">Select all</button>
     </div>
     <div class="float-right">
-      <%= link_to new_author_path, class: "btn btn-outline-secondary" do %>
-        <i class="fas fa-user-plus"></i> Create Author
+      <%= link_to new_user_path, class: "btn btn-outline-secondary" do %>
+        <i class="fas fa-user-plus"></i> Create User
       <% end %>
     </div>
   </div>
 
-  <%= form_tag destroy_multiple_authors_path, method: :delete do %>
+  <%= form_tag destroy_multiple_users_path, method: :delete do %>
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -34,7 +34,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-          Would you like to remove these authors from the list?
+          Would you like to remove these users from the list?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
@@ -60,21 +60,21 @@
       </thead>
       <tbody>
 
-        <% @authors.each do |author| %>
+        <% @users.each do |user| %>
           <tr>
           <td align="center">
-            <%= check_box_tag "authors[]", author.id %>
+            <%= check_box_tag "users[]", user.id %>
           </td>
-          <td scope="row"><%= author.name %></td>
+          <td scope="row"><%= user.loginid %></td>
           <td>
             <div class="btn-group float-right">
-              <%= link_to author, class: "btn btn-outline-secondary btn-sm" do %>
+              <%= link_to user, class: "btn btn-outline-secondary btn-sm" do %>
                 <i class="fas fa-search"></i> Show
               <% end %>
-              <%= link_to edit_author_path(author), class: "btn btn-outline-secondary btn-sm" do %>
+              <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-sm" do %>
                 <i class="fas fa-user-edit"></i> Edit
               <% end %>
-              <div class="modal" id="myModal<%= author.id %>">
+              <div class="modal" id="myModal<%= user.id %>">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -82,18 +82,18 @@
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                      Would you like to remove this author from the list?
+                      Would you like to remove this user from the list?
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                      <%= link_to author, method: :delete, class: "btn btn-danger" do %>
+                      <%= link_to user, method: :delete, class: "btn btn-danger" do %>
                         <i class="fas fa-trash-alt"></i> Delete
                       <% end %>
                     </div>
                   </div>
                 </div>
               </div>
-              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<%= author.id %>">
+              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<%= user.id %>">
                 <i class="fas fa-trash-alt"></i> Delete
               </button>
             </div>
@@ -105,11 +105,11 @@
   </div>
 
   <div class="float-right" id="page_entries_info">
-    <%= page_entries_info @authors%>
+    <%= page_entries_info @users%>
   </div>
   <% end %>
 
   <div>
-    <%= paginate @authors, window: 2, entry_name: "authors"  %>
+    <%= paginate @users, window: 2, entry_name: "users"  %>
   </div>
 </div>

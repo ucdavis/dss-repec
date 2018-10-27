@@ -1,7 +1,10 @@
 <%= form_with(model: paper, local: true) do |form| %>
   <% if paper.errors.any? %>
     <div class="alert alert-danger" id="error_explanation">
-      <h2><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h4>
 
       <ul>
         <% paper.errors.full_messages.each do |message| %>
@@ -11,7 +14,7 @@
     </div>
   <% end %>
 
-  <div id="form">
+  <div>
     <div class="create form-group">
       <%= form.label :title %>
       <%= form.text_field :title, class: "form-control", placeholder: "Title", size: 100 %>
@@ -24,24 +27,7 @@
 
     <div class="create form-group">
       <%= form.label :keywords %>
-      <%= form.text_field :keywords, class: "form-control", placeholder: "Keywords", size: 100 %>
-    </div>
-
-    <div class="create form-group">
-      <%= form.label :creation_date %>
-      <%= form.text_field :creation_date, "id" => 'datepicker', class: "form-control", placeholder: "Creation Date", size: 100 %>
-    </div>
-
-
-
-    <div class="create form-group">
-      <%= form.label :classification %>
-      <%= form.text_field :classification_jel, class: "form-control", placeholder: "Classification", size: 100 %>
-    </div>
-
-    <div class="create form-group">
-      <%= form.label :paper_length %>
-      <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length", size: 100 %>
+      <%= form.text_field :keywords, class: "form-control", placeholder: "Keywords" %>
     </div>
 
     <div class="create form-group">
@@ -61,17 +47,34 @@
         </div>
     </div>
 
-    <div id="create_new_author_button">
-      <%= link_to 'Create new author', new_author_path, class: "btn btn-secondary" %>
+  <div id="navigation_button">
+    <%= link_to new_author_path, class: "btn btn-outline-secondary" do %>
+      <i class="fas fa-user-plus"></i> Create new author
+    <% end %>
+  </div>
+
+    <div class="create form-group" id="papers_creation_dati">
+      <%= form.label :creation_date %>
+      <%= form.text_field :creation_date, class: "form-control", id: "datepicker", placeholder: "Creation date" %>
     </div>
 
     <div class="create form-group">
-      <%= form.label :file %>
+      <%= form.label :classification %>
+      <%= form.text_field :classification_jel, class: "form-control", placeholder: "Classification" %>
+    </div>
+
+    <div class="create form-group">
+      <%= form.label :paper_length %>
+      <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length"%>
+    </div>
+
+    <div id="file_upload">
+      <strong><%= form.label :file_upload %></strong><br />
       <%= form.file_field :file %>
     </div>
 
     <div class="actions" id="submit_button">
-      <%= form.submit class: "btn btn-primary" %>
+      <%= form.submit class: "btn btn-secondary" %>
     </div>
   </div>
 <% end %>

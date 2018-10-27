@@ -1,20 +1,24 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Authors", :authors_path
 
   def new
     @author = Author.new
+    add_breadcrumb "Create author", new_author_path
   end
 
   def index
-    @authors = Author.search(params[:search]).paginate(:page => params[:page], per_page: 40)
+    @authors = Author.search(params[:search]).order(:name).page(params[:page]).per(30)
   end
 
   def show
     @author = Author.find(params[:id])
+    add_breadcrumb "Show author", @author
   end
 
   def edit
     @author = Author.find(params[:id])
+    add_breadcrumb "Edit author", edit_author_path
   end
 
   def create
@@ -67,7 +71,6 @@ class AuthorsController < ApplicationController
       format.html { redirect_to authors_path }
       format.json { head :no_content }
     end
-
   end
 
 private

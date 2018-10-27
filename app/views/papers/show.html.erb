@@ -1,58 +1,60 @@
 <%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<p id="notice"><%= notice %></p>
-
-<h1>Showing paper</h1>
-
-<%= @paper.file.nil? %>
-<% if @paper.file.nil? %>
-  <%= link_to 'View file', url_for(@paper.file) %>
-<% end %>
-
-<table class="table table-bordered" id="show_table">
-  <tr>
-    <th id="header_names">Title</th>
-    <td><%= @paper.title %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Authors</th>
-    <td>
-      <ul><% @paper.authors.each do |author| %>
+<div class="container">
+  <table class="table table-bordered" id="show_table">
+    <tr>
+      <th id="header_names">Title</th>
+      <td><%= @paper.title %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Authors</th>
+      <td>
+        <ul><% @paper.authors.each do |author| %>
           <li><%= author.name %></li>
-        <% end %>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <th id="header_names">Abstract</th>
-    <td><%= @paper.abstract %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Keywords</th>
-    <td><%= @paper.keywords %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Paper Length</th>
-    <td><%= @paper.paper_length %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Classification</th>
-    <td><%= @paper.classification_jel %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Creation Date</th>
-    <td><%= @paper.creation_date%></td>
-  </tr>
-    <th id="header_names">Published at</th>
-    <td><%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Updated at</th>
-    <td><%= @paper.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
-  </tr>
-</table>
+        <% end %></ul>
+      </td>
+    </tr>
+    <tr>
+      <th id="header_names">Abstract</th>
+      <td><%= @paper.abstract %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Keywords</th>
+      <td><%= @paper.keywords %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Paper Length</th>
+      <td><%= @paper.paper_length %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Classification</th>
+      <td><%= @paper.classification_jel %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Creation Date</th>
+      <td><%= @paper.creation_date.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y')%></td>
+    </tr>
+    <tr>
+    <tr>
+      <th id="header_names">File</th>
+      <td><%= link_to 'View file', url_for(@paper.file) %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Published at</th>
+      <td><%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+    <tr>
+      <th id="header_names">Updated at</th>
+      <td><%= @paper.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+  </table>
 
-<div id="show_buttons">
-  <%= link_to 'Edit', edit_paper_path(@paper), class: "btn btn-default outline" %>
-  <%= link_to 'Back', papers_path, class: "btn btn-default outline" %>
+  <div class="float-right" id="navigation_button">
+    <%= link_to edit_paper_path(@paper), class: "btn btn-outline-secondary" do %>
+      <i class="fas fa-edit"></i> Edit
+    <% end %>
+    <%= link_to papers_path, class: "btn btn-outline-secondary" do %>
+      Back <i class="fas fa-arrow-right"></i>
+    <% end %>
+  </div>
 </div>

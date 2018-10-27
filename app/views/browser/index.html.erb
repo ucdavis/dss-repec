@@ -1,14 +1,14 @@
-<% if pathway_path == "/repec" %>
+<% if @path == "repec" %>
   <%= link_to 'repec', "/repec/cda" %>
 
-<% elsif pathway_path == "/repec/cda" %>
+<% elsif @path == "repec/cda" %>
   <%= link_to '[To Parent Directory]', "/repec" %><br>
 
-  <%= link_to 'cdaarch.rdf' %><br>
-  <%= link_to 'cdaseri.rdf' %><br>
+  <%= link_to 'cdaarch.rdf', asset_path("cdaarch.txt")%><br>
+  <%= link_to 'cdaseri.rdf', asset_path("cdaseri.txt")%><br>
   <%= link_to 'cda', "/repec/cda/wpaper" %><br>
 
-<% elsif pathway_path == "/repec/cda/wpaper" %>
+<% elsif @path == "repec/cda/wpaper" %>
   <%= link_to '[To Parent Directory]', "/repec/cda" %><br>
 
   <% Paper.all.each do |paper| %>

@@ -1,26 +1,30 @@
 class PapersController < ApplicationController
   before_action :set_paper, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Papers", :papers_path
 
   # GET /papers
   # GET /papers.json
   def index
-    @papers = Paper.search(params[:search]).paginate(:page => params[:page], per_page: 40)
+    @papers = Paper.search(params[:search]).order(:id).page(params[:page]).per(30)
   end
 
   # GET /papers/1
   # GET /papers/1.json
   def show
     @paper = Paper.find(params[:id])
+    add_breadcrumb "Show paper", @paper
   end
 
   # GET /papers/new
   def new
     @paper = Paper.new
+    add_breadcrumb "Create paper", new_paper_path
   end
 
   # GET /papers/1/edit
   def edit
     @paper = Paper.find(params[:id])
+    add_breadcrumb "Edit author", edit_paper_path
   end
 
   # POST /papers
@@ -70,6 +74,15 @@ class PapersController < ApplicationController
         flash[:success] = "Paper was successfully destroyed."
         redirect_to papers_url
       }
+      format.json { head :no_content }
+    end
+  end
+
+  def destroy_multiple
+    Paper.destroy(params[:papers])
+
+    respond_to do |format|
+      format.html { redirect_to papers_path }
       format.json { head :no_content }
     end
   end

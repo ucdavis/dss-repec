@@ -20,9 +20,15 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails'
-gem 'will_paginate', '~> 3.1'
-gem 'will_paginate-bootstrap4'
+gem 'kaminari'
 gem 'jquery-ui-rails', '5.0.5'
+gem 'font-awesome-sass', '~> 5.4.1'
+gem "breadcrumbs_on_rails"
+gem 'jquery-datetimepicker-rails', '~> 2.4', '>= 2.4.1.0'
+gem 'carrierwave', '~> 0.10.0'
+
+# For CAS authentication
+gem 'rubycas-client', git: 'https://github.com/rubycas/rubycas-client.git'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

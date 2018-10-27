@@ -1,25 +1,27 @@
 <%= stylesheet_link_tag 'authors', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <table class="table table-bordered" id="show_table">
+    <tr>
+      <th>Author</th>
+      <td><%= @author.name %></td>
+    </tr>
+    <tr>
+      <th>Published at</th>
+      <td><%= @author.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @author.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+  </table>
 
-<h1>Showing author</h1>
-
-<table class="table table-bordered" id="show_table">
-  <tr>
-    <th id="header_names">Author</th>
-    <td><%= @author.name %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Published at</th>
-    <td><%= @author.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
-  </tr>
-  <tr>
-    <th id="header_names">Updated at</th>
-    <td><%= @author.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
-  </tr>
-</table>
-
-<div id="show_form_button">
-  <%= link_to 'Edit', edit_author_path(@author), class: "btn btn-default outline" %>
-  <%= link_to 'Back', authors_path, class: "btn btn-default outline" %>
+  <div class="float-right">
+    <%= link_to edit_author_path(@author), class: "btn btn-outline-secondary" do %>
+      <i class="fas fa-user-edit"></i> Edit
+    <% end %>
+    <%= link_to authors_path, class: "btn btn-outline-secondary" do %>
+      Back <i class="fas fa-arrow-right"></i> 
+    <% end %>
+  </div>
 </div>

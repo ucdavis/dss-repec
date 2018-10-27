@@ -11,7 +11,6 @@ class Author < ApplicationRecord
     self.name.split(" ").last
   end
 
-
   def self.search(search = nil)
     if search
       where('name LIKE ?', "%#{search}%")

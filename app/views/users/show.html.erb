@@ -1,0 +1,25 @@
+<div class="container">
+  <table class="table table-bordered" id="show_table">
+    <tr>
+      <th>Loginid</th>
+      <td><%= @user.loginid %></td>
+    </tr>
+    <tr>
+      <th>Published at</th>
+      <td><%= @user.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+    <tr>
+      <th>Updated at</th>
+      <td><%= @user.updated_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+    </tr>
+  </table>
+
+  <div class="float-right">
+    <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary" do %>
+      <i class="fas fa-user-edit"></i> Edit
+    <% end %>
+    <%= link_to users_path, class: "btn btn-outline-secondary" do %>
+      Back <i class="fas fa-arrow-right"></i>
+    <% end %>
+  </div>
+</div>
