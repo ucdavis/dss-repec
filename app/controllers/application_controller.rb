@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
     @loginid = session[:cas_user]
 
-    unless User.find_by(loginid: @loginid)
-      #TODO: redirect to forbidden
-      flash[:danger] = "You don't have access"
-  
+     unless User.find_by(loginid: @loginid)
+        #TODO: redirect to forbidden
+        flash[:danger] = "You don't have access"
+        render :'users/unauthorized', status: :forbidden and return
     end
   end
 end

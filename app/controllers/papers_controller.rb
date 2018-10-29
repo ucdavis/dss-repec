@@ -31,7 +31,6 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
-
     @paper.paper_number = Paper.maximum("paper_number") + 1
 
     respond_to do |format|
@@ -39,7 +38,7 @@ class PapersController < ApplicationController
         format.html {
           flash[:success] = "Paper was successfully created."
           redirect_to @paper
-         }
+        }
         format.json { render :show, status: :created, location: @paper }
       else
         format.html { render :new }
