@@ -4,7 +4,7 @@
   <%= form_tag users_path, { :method => 'get', class: "container", role: "search" }  do %>
   <div class="main">
     <div class="input-group">
-      <%=text_field_tag :search, params[:search], class:"form-control", placeholder:"Search for users" %>
+      <%= text_field_tag :search, params[:search], class:"form-control", placeholder:"Search for users" %>
       <div class="input-group-append">
         <button class="btn btn-dark" type="button">
           <i class="fa fa-search"></i>
@@ -105,11 +105,11 @@
   </div>
 
   <div class="float-right" id="page_entries_info">
-    <%= page_entries_info @users%>
+    <%= page_entries_info @users %>
   </div>
   <% end %>
 
   <div>
-    <%= paginate @users, window: 2, entry_name: "users"  %>
+    <%= paginate @users, window: 2, entry_name: "users" %>
   </div>
 </div>

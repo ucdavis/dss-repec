@@ -8,16 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
   </head>
-
   <body>
-    <%= render 'shared/nav' %>
+    <% if @user %>
+      <%= render 'shared/nav' %>
+    <% end %>
 
     <div class="container">
       <ol class="breadcrumb">
         <%= render_breadcrumbs :separator => ' / ' %>
       </ol>
     </div>
-
 
   <div class="container">
     <% flash.each do |key, value| %>

@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'papers', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="container">
-  <%= form_tag papers_path, { :method => 'get', class: "container", role: "search" }  do %>
+  <%= form_tag papers_path, { :method => 'get', class: "container", role: "search" } do %>
   <div class="main">
     <div class="input-group">
       <%=text_field_tag :search, params[:search], class:"form-control",placeholder:"Search for papers" %>
@@ -55,8 +55,8 @@
           <tr>
             <th></th>
             <th scope="col">Title</th>
-            <th scope="col">Authors</th>
-            <th scope="col">Published at</th>
+            <th id="column2" scope="col">Authors</th>
+            <th id="column3" scope="col">Published at</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -66,13 +66,13 @@
               <td align="center">
                 <%= check_box_tag "papers[]", paper.id %>
               </td>
-              <td scope="row"><%= paper.title %></td>
-              <td>
-                <% paper.authors.each do |author| %>
-                  <%= author.name %><br>
-                <% end %>
+              <td scope="row"><%= paper.title %>
               </td>
-              <td><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y at %l:%M %p') %></td>
+              <td>
+                <%= paper.authors.map(&:name).join(", ") %>
+
+              </td>
+              <td><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y %l:%M %p') %></td>
               <td>
                 <div class="btn-group float-right">
                   <%= link_to paper, class: "btn btn-outline-secondary btn-sm" do %>

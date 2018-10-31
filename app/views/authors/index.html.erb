@@ -4,7 +4,7 @@
 <%= form_tag authors_path, { :method => 'get', class: "container", role: "search" }  do %>
   <div class="main">
     <div class="input-group">
-      <%=text_field_tag :search, params[:search], class:"form-control", placeholder:"Search for authors" %>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for authors" %>
       <div class="input-group-append">
         <button class="btn btn-dark" type="button">
           <i class="fa fa-search"></i>
@@ -66,10 +66,10 @@
           <td>
             <div class="btn-group float-right">
               <%= link_to author, class: "btn btn-outline-secondary btn-sm" do %>
-                <i class="fas fa-search"></i>Show
+                <i class="fas fa-search"></i> Show
               <% end %>
               <%= link_to edit_author_path(author), class: "btn btn-outline-secondary btn-sm" do %>
-                <i class="fas fa-user-edit"></i>Edit
+                <i class="fas fa-user-edit"></i> Edit
               <% end %>
               <div class="modal" id="myModal<%= author.id %>">
                 <div class="modal-dialog">
@@ -82,14 +82,14 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                       <%= link_to author, method: :delete, class: "btn btn-danger" do %>
-                        <i class="fas fa-trash-alt"></i>Delete
+                        <i class="fas fa-trash-alt"></i> Delete
                       <% end %>
                     </div>
                   </div>
                 </div>
               </div>
               <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<%= author.id %>">
-                <i class="fas fa-trash-alt"></i>Delete
+                <i class="fas fa-trash-alt"></i> Delete
               </button>
             </div>
           </td>
@@ -100,11 +100,11 @@
   </div>
 
   <div class="float-right" id="page_entries_info">
-    <%= page_entries_info @authors%>
+    <%= page_entries_info @authors %>
   </div>
 <% end %>
 
   <div>
-    <%= paginate @authors, window: 2, entry_name: "authors"  %>
+    <%= paginate @authors, window: 2, entry_name: "authors" %>
   </div>
 </div>

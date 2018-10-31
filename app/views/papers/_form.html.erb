@@ -5,7 +5,6 @@
         <span aria-hidden="true">&times;</span>
       </button>
       <h4><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h4>
-
       <ul>
         <% paper.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -17,7 +16,7 @@
   <div>
     <div class="create form-group">
       <%= form.label :title %>
-      <%= form.text_field :title, class: "form-control", placeholder: "Title", size: 100 %>
+      <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
     </div>
 
     <div class="create form-group">
@@ -65,11 +64,11 @@
 
     <div class="create form-group">
       <%= form.label :paper_length %>
-      <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length"%>
+      <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length" %>
     </div>
 
     <div id="file_upload">
-      <strong><%= form.label :file_upload %></strong><br />
+      <strong><%= form.label :file_upload %></strong><br>
       <%= form.file_field :file %>
     </div>
 

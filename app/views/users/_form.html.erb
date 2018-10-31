@@ -6,7 +6,6 @@
         <span aria-hidden="true">&times;</span>
       </button>
       <h4><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h4>
-
       <ul>
         <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -17,7 +16,7 @@
 
   <div class="create form-group">
     <%= form.label :loginid %>
-    <%= form.text_field :loginid, class: "form-control", placeholder:"Loginid"%>
+    <%= form.text_field :loginid, class: "form-control", placeholder:"Loginid" %>
   </div>
 
     <div class="actions" id="submit_button">
