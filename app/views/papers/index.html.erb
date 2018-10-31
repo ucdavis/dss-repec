@@ -47,68 +47,68 @@
     <i class="fas fa-trash-alt"></i> Delete all
   </button>
 
-    <div id="table" class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <thead>
+  <div id="table" class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th scope="col">Title</th>
+          <th id="column2" scope="col">Authors</th>
+          <th id="column3" scope="col">Published at</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @papers.each do |paper| %>
           <tr>
-            <th></th>
-            <th scope="col">Title</th>
-            <th id="column2" scope="col">Authors</th>
-            <th id="column3" scope="col">Published at</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @papers.each do |paper| %>
-            <tr>
-              <td align="center">
-                <%= check_box_tag "papers[]", paper.id %>
-              </td>
-              <td scope="row"><%= paper.title %>
-              </td>
-              <td>
-                <%= paper.authors.map(&:name).join(", ") %>
-              </td>
-              <td><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y %l:%M %p') %></td>
-              <td>
-                <div class="btn-group float-right">
-                  <%= link_to paper, class: "btn btn-outline-secondary btn-sm" do %>
-                    <i class="fas fa-search"></i> Show
-                  <% end %>
-                  <%= link_to edit_paper_path(paper), class: "btn btn-outline-secondary btn-sm" do %>
-                    <i class="fas fa-edit"></i> Edit
-                  <% end %>
-                  <div class="modal" id="myModal<%= paper.id %>">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Are you sure?</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">Would you like to remove this paper from the list?</div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                          <%= link_to paper, method: :delete, class: "btn btn-danger" do %>
-                            <i class="fas fa-trash-alt"></i> Delete
-                          <% end %>
-                        </div>
+            <td align="center">
+              <%= check_box_tag "papers[]", paper.id %>
+            </td>
+            <td scope="row"><%= paper.title %>
+            </td>
+            <td>
+              <%= paper.authors.map(&:name).join(", ") %>
+            </td>
+            <td><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y %l:%M %p') %></td>
+            <td>
+              <div class="btn-group float-right">
+                <%= link_to paper, class: "btn btn-outline-secondary btn-sm" do %>
+                  <i class="fas fa-search"></i> Show
+                <% end %>
+                <%= link_to edit_paper_path(paper), class: "btn btn-outline-secondary btn-sm" do %>
+                  <i class="fas fa-edit"></i> Edit
+                <% end %>
+                <div class="modal" id="myModal<%= paper.id %>">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Are you sure?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">Would you like to remove this paper from the list?</div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                        <%= link_to paper, method: :delete, class: "btn btn-danger" do %>
+                          <i class="fas fa-trash-alt"></i> Delete
+                        <% end %>
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<%= paper.id%>">
-                    <i class="fas fa-trash-alt"></i> Delete
-                  </button>
                 </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal<%= paper.id%>">
+                  <i class="fas fa-trash-alt"></i> Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="float-right" id="page_entries_info">
-      <%= page_entries_info @papers %>
-    </div>
+  <div class="float-right" id="page_entries_info">
+    <%= page_entries_info @papers %>
+  </div>
   <% end %>
 
   <div><%= paginate @papers, window: 2, entry_name: "papers" %></div>
