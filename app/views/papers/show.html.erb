@@ -35,7 +35,6 @@
       <td><%= @paper.creation_date.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y') %></td>
     </tr>
     <tr>
-    <tr>
       <th id="header_names">File</th>
       <td><%= link_to 'View file', url_for(@paper.file) %></td>
     </tr>

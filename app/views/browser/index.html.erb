@@ -1,14 +1,11 @@
 <% if @path == "repec" %>
   <%= link_to '[To Parent Directory]', "/" %><br>
   <%= link_to 'cda', "/repec/cda" %>
-
 <% elsif @path == "repec/cda" %>
   <%= link_to '[To Parent Directory]', "/repec" %><br>
-
   <%= link_to 'cdaarch.rdf', asset_path("cdaarch.rdf")%><br>
   <%= link_to 'cdaseri.rdf', asset_path("cdaseri.rdf")%><br>
   <%= link_to 'wpaper', "/repec/cda/wpaper" %><br>
-
 <% elsif @path == "repec/cda/wpaper" %>
   <%= link_to '[To Parent Directory]', "/repec/cda" %><br>
 
@@ -17,7 +14,6 @@
 
     <%= link_to "#{paper.paper_number}.rdf", paper_rdf_path(paper) %><br>
   <% end %>
-
 <% else %>
   <%= link_to 'repec', "/repec" %>
 <% end %>

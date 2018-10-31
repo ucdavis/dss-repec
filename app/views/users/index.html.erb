@@ -59,7 +59,6 @@
         </tr>
       </thead>
       <tbody>
-
         <% @users.each do |user| %>
           <tr>
           <td align="center">
@@ -81,9 +80,7 @@
                       <h4 class="modal-title">Are you sure?</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="modal-body">
-                      Would you like to remove this user from the list?
-                    </div>
+                    <div class="modal-body">Would you like to remove this user from the list?</div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
                       <%= link_to user, method: :delete, class: "btn btn-danger" do %>
@@ -109,7 +106,5 @@
   </div>
   <% end %>
 
-  <div>
-    <%= paginate @users, window: 2, entry_name: "users" %>
-  </div>
+  <div><%= paginate @users, window: 2, entry_name: "users" %></div>
 </div>

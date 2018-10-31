@@ -70,7 +70,6 @@
               </td>
               <td>
                 <%= paper.authors.map(&:name).join(", ") %>
-
               </td>
               <td><%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%B %e, %Y %l:%M %p') %></td>
               <td>
@@ -116,7 +115,5 @@
     </div>
   <% end %>
 
-  <div>
-    <%= paginate @papers, window: 2, entry_name: "papers" %>
-  </div>
+  <div><%= paginate @papers, window: 2, entry_name: "papers" %></div>
 </div>

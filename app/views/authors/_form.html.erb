@@ -14,12 +14,13 @@
     </div>
   <% end %>
 
-    <div class="create form-group">
-      <%= form.label :name %>
-      <%= form.text_field :name, class: "form-control", placeholder:"Name" %>
-    </div>
-    <div class="actions" id="submit_button">
-      <%= form.submit class: "btn btn-secondary" %>
-    </div>
+  <div class="create form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder:"Name" %>
+  </div>
+
+  <div class="actions" id="submit_button">
+    <%= form.submit class: "btn btn-secondary" %>
+  </div>
 <% end %>
 </div>
