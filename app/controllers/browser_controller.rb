@@ -1,4 +1,5 @@
 class BrowserController < ApplicationController
+  skip_before_action :authenticate, only: [:index, :show_rdf]
 
   # GET /papers
   # GET /papers.json
