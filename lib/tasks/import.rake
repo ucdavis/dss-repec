@@ -75,6 +75,18 @@ namespace :papers do
           paper.abstract = abstract
         when "File-URL"
           # string, max found 54
+          file_url = value.strip
+          file_name = file_url.split('/')[-1]
+
+          begin
+            file_data  = open(file_url)
+          rescue OpenURI::HTTPError => e
+            puts "Could not load URL #{file_url}, skipping ..."
+            next
+          end
+
+          # 'upload' the referenced PDF file
+          paper.file.attach(io: file_data, filename: file_name, content_type: 'text/plain')
         when "File-Format"
           # string, max found 17, apparently always 'Application/pdf'
         when "Number"
@@ -102,7 +114,18 @@ namespace :papers do
       end
       
       file.close
+
+      unless paper.valid?
+        puts "Skipping paper from file #{filename} due to validation errors"
+        paper.errors.messages.each do |field, error|
+          puts "\t#{field}: #{error}"
+        end
+        next
+      end
+
       paper.save!
+
+      puts "Paper created: #{paper.title.truncate(50)}"
     end
   end
 end
