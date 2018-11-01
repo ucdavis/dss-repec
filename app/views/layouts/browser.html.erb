@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Repec</title>
+  </head>
+  <body>
+  <h1>repec - /<%= params[:path] %><%= params[:path].present? ? '/' : '' %></h1>
+  <hr>
+  <%= yield %>
+  <hr>
+  </body>
+</html>

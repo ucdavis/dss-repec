@@ -4,10 +4,11 @@ class BrowserController < ApplicationController
   # GET /papers
   # GET /papers.json
   def index
-    @papers = Paper.all
+    @papers = Paper.includes(:authors).all
+
     @path = params[:path]
 
-    render layout: false
+    render layout: 'browser'
   end
 
   def show_rdf

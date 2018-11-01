@@ -1,19 +1,18 @@
+<pre>
 <% if @path == "repec" %>
-  <%= link_to '[To Parent Directory]', "/" %><br>
-  <%= link_to 'cda', "/repec/cda" %>
+<%= link_to '[To Parent Directory]', "/" %><br>
+<%= dir_entry(Time.now, 'cda', '/repec/cda') %>
 <% elsif @path == "repec/cda" %>
-  <%= link_to '[To Parent Directory]', "/repec" %><br>
-  <%= link_to 'cdaarch.rdf', asset_path("cdaarch.rdf")%><br>
-  <%= link_to 'cdaseri.rdf', asset_path("cdaseri.rdf")%><br>
-  <%= link_to 'wpaper', "/repec/cda/wpaper" %><br>
+<%= link_to '[To Parent Directory]', "/repec" %><br>
+<%= dir_entry(File.mtime(Rails.root.join('public', 'cdaarch.rdf')), 'cdaarch.rdf', asset_path("cdaarch.rdf"), File.size(Rails.root.join('public', 'cdaarch.rdf'))) %>
+<%= dir_entry(File.mtime(Rails.root.join('public', 'cdaseri.rdf')), 'cdaseri.rdf', asset_path("cdaseri.rdf"), File.size(Rails.root.join('public', 'cdaseri.rdf'))) %>
+<%= dir_entry(Time.now, 'wpaper', "/repec/cda/wpaper") %><br>
 <% elsif @path == "repec/cda/wpaper" %>
-  <%= link_to '[To Parent Directory]', "/repec/cda" %><br>
-
-  <% Paper.all.each do |paper| %>
-    <%= paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%m/%d/%Y %l:%M %p') %>
-
-    <%= link_to "#{paper.paper_number}.rdf", paper_rdf_path(paper) %><br>
-  <% end %>
-<% else %>
-  <%= link_to 'repec', "/repec" %>
+<%= link_to '[To Parent Directory]', "/repec/cda" %><br>
+<% @papers.each do |paper| %>
+<% cache paper do %><%= dir_entry(paper.created_at.in_time_zone('Pacific Time (US & Canada)'), "#{paper.paper_number}.rdf", paper_rdf_path(paper), PapersController.render('browser/show.rdf', assigns: { paper: paper }).length ) %><% end %>
 <% end %>
+<% else %>
+<%= dir_entry(Time.now, 'repec', '/repec') %>
+<% end %>
+</pre>
