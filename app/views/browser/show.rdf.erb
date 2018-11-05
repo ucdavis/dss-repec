@@ -12,13 +12,7 @@ Author-Name-Last: <%= author.name.split[-1] %>
 Title: <%= @paper.title.strip %>
 Abstract: <%= @paper.abstract.strip %>
 Length: <%= @paper.paper_length %>
-<% if @paper.paper_number < 100 %>
-File-URL: http://wp.econ.ucdavis.edu/<%= @paper.paper_number%>.pdf
-<% elsif @paper.paper_number < 1000 %>
-File-URL: http://wp.econ.ucdavis.edu/<%= @paper.paper_number.to_s[0]%>-<%= @paper.paper_number.to_s[1..2] %>.pdf
-<% elsif @paper.paper_number < 10000 %>
-File-URL: http://wp.econ.ucdavis.edu/<%= @paper.paper_number.to_s[0..1]%>-<%= @paper.paper_number.to_s[2..3] %>.pdf
-<% end %>
+File-URL: <%= polymorphic_url(@paper.file) %>
 File-Format: Application/pdf
 Number: <%= @paper.paper_number %>
 Classification-JEL: <%= @paper.classification_jel.strip %>

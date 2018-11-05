@@ -14,6 +14,6 @@ class BrowserController < ApplicationController
   def show_rdf
     @paper = Paper.find(params[:id])
 
-    render action: "show", formats: :rdf
+    render action: 'show', formats: :rdf
   end
 end
