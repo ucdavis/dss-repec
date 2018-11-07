@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'repec/cda/wpaper/:id.rdf', as: :paper_rdf , action: :show_rdf, controller: :browser
+  get 'repec/cda/wpaper/:id.redif', as: :paper_redif , action: :show_redif, controller: :browser
   get '/:path', to: 'browser#index', as: :pathway, constraints: { path: /repec[\/a-zA-Z]*/i }
 
   root to: 'browser#index'
