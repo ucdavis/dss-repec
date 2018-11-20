@@ -6,7 +6,7 @@
     <div class="input-group">
       <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for papers" %>
       <div class="input-group-append">
-        <button class="btn btn-dark" type="button">
+        <button class="btn btn-dark" type="submit">
           <i class="fa fa-search"></i>
         </button>
       </div>
@@ -54,7 +54,7 @@
           <th></th>
           <th scope="col">Title</th>
           <th id="column2" scope="col">Authors</th>
-          <th id="column3" scope="col">Published at</th>
+          <th id="column3" scope="col">Added at</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
