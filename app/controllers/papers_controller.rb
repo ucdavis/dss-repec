@@ -5,7 +5,7 @@ class PapersController < ApplicationController
   # GET /papers
   # GET /papers.json
   def index
-    @papers = Paper.search(params[:search]).order(:id).page(params[:page]).per(30)
+    @papers = Paper.search(params[:search]).order(created_at: :desc).page(params[:page]).per(30)
   end
 
   # GET /papers/1
