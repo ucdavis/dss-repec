@@ -15,22 +15,22 @@
 
   <div>
     <div class="create form-group">
-      <%= form.label :title %>
+      <%= form.label :title %> (required)
       <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
     </div>
 
     <div class="create form-group">
-      <%= form.label :abstract %>
+      <%= form.label :abstract %> (required)
       <%= form.text_area :abstract, :size => "60x12", class: "form-control", placeholder: "Abstract" %>
     </div>
 
     <div class="create form-group">
-      <%= form.label :keywords %>
+      <%= form.label :keywords %> (comma-separated)
       <%= form.text_field :keywords, class: "form-control", placeholder: "Keywords" %>
     </div>
 
     <div class="create form-group">
-      <h3>All Authors</h3>
+      <h3>Authors</h3> (required, select at least one)
         <div id="authors_boxed_list">
           <ul>
             <% Author.order('lower(name)').all.each do |author| %>
@@ -53,27 +53,27 @@
     </div>
 
     <div class="create form-group" id="papers_creation_dati">
-      <%= form.label :creation_date %>
+      <%= form.label :creation_date %> (date paper was written)
       <%= form.text_field :creation_date, class: "form-control", id: "datepicker", placeholder: "Creation date" %>
     </div>
 
     <div class="create form-group">
-      <%= form.label :classification %>
+      <%= form.label :classification %> (use Journal of Economic Literature codes from this <a href="https://ideas.repec.org/j/" target="_blank">list</a>)
       <%= form.text_field :classification_jel, class: "form-control", placeholder: "Classification" %>
     </div>
 
     <div class="create form-group">
-      <%= form.label :paper_length %>
+      <%= form.label :paper_length %> (number of pages if printed)
       <%= form.text_field :paper_length, class: "form-control", placeholder: "Paper length" %>
     </div>
 
     <div id="file_upload">
-      <strong><%= form.label :file_upload %></strong><br>
+      <strong><%= form.label :file_upload %> (required)</strong><br>
       <%= form.file_field :file %>
     </div>
 
     <div class="actions" id="submit_button">
-      <%= form.submit class: "btn btn-secondary" %>
+      <%= form.submit "Add Paper", class: "btn btn-secondary" %>
     </div>
   </div>
 <% end %>
