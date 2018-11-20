@@ -20,5 +20,9 @@ Rails.application.routes.draw do
   get 'repec/cda/wpaper/:id.redif', as: :paper_redif , action: :show_redif, controller: :browser
   get '/:path', to: 'browser#index', as: :pathway, constraints: { path: /repec[\/a-zA-Z]*/i }
 
+  # Some helpful redirects
+  get '/login', to: redirect('/papers')
+  get '/admin', to: redirect('/papers')
+
   root to: 'browser#index'
 end
