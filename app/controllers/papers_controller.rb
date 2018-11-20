@@ -18,7 +18,7 @@ class PapersController < ApplicationController
   # GET /papers/new
   def new
     @paper = Paper.new
-    add_breadcrumb "Create paper", new_paper_path
+    add_breadcrumb "Add paper", new_paper_path
   end
 
   # GET /papers/1/edit

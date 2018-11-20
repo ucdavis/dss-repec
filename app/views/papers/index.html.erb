@@ -4,7 +4,7 @@
   <%= form_tag papers_path, { :method => 'get', class: "container", role: "search" } do %>
   <div class="main">
     <div class="input-group">
-      <%= text_field_tag :search, params[:search], class:"form-control",placeholder:"Search for papers" %>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search for papers" %>
       <div class="input-group-append">
         <button class="btn btn-dark" type="button">
           <i class="fa fa-search"></i>
@@ -20,7 +20,7 @@
     </div>
     <div class="float-right">
       <%= link_to new_paper_path, class: "btn btn-outline-secondary" do %>
-        <i class="fas fa-file-alt"></i> <i class="fas fa-plus"></i> Create Paper
+        <i class="fas fa-file-alt"></i> <i class="fas fa-plus"></i> Add Paper
       <% end %>
     </div>
   </div>
