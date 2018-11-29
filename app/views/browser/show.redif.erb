@@ -18,10 +18,4 @@ Number: <%= @paper.paper_number %>
 Classification-JEL: <%= @paper.classification_jel.strip %>
 KeyWords: <%= @paper.keywords.strip %>
 Creation-Date: <%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%Y%m%d') %>
-<% if @paper.paper_number < 100 %>
-Handle: RePEc:cda:wpaper:00-<%= @paper.paper_number %>
-<% elsif @paper.paper_number < 1000 %>
-Handle: RePEc:cda:wpaper:0<%= @paper.paper_number.to_s[0] %>-<%= @paper.paper_number.to_s[1..2] %>
-<% elsif @paper.paper_number < 10000 %>
-Handle: RePEc:cda:wpaper:<%= @paper.paper_number.to_s[0..1] %>-<%= @paper.paper_number.to_s[2..3] %>
-<% end %>
+Handle: RePEc:cda:wpaper:<%= @paper.paper_number.to_s.rjust(3, "0")[0..1] + '-' + @paper.paper_number.to_s.rjust(3, "0")[2..-1] %>
