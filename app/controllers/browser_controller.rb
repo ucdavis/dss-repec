@@ -4,7 +4,7 @@ class BrowserController < ApplicationController
   # GET /papers
   # GET /papers.json
   def index
-    @papers = Paper.includes(:authors).all
+    @papers = Paper.includes(:authors).order(:paper_number).all
 
     @path = params[:path]
 
