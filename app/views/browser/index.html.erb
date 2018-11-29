@@ -10,7 +10,7 @@
 <% elsif @path == "repec/cda/wpaper" %>
 <%= link_to '[To Parent Directory]', "/repec/cda" %><br>
 <% @papers.each do |paper| %>
-<% cache paper do %><%= dir_entry(paper.created_at.in_time_zone('Pacific Time (US & Canada)'), "#{paper.paper_number}.redif", paper_redif_path(paper), PapersController.render('browser/show.redif', assigns: { paper: paper }).length ) %><% end %>
+<% cache paper do %><%= dir_entry(paper.created_at.in_time_zone('Pacific Time (US & Canada)'), "#{paper.paper_number.to_s.rjust(2, "0")}.redif", paper_redif_path(paper), PapersController.render('browser/show.redif', assigns: { paper: paper }).length ) %><% end %>
 <% end %>
 <% else %>
 <%= dir_entry(Time.now, 'repec', '/repec') %>
