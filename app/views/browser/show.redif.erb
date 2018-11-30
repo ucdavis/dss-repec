@@ -12,7 +12,7 @@ Author-Name-Last: <%= author.name.split[-1] %>
 Title: <%= @paper.title.strip %>
 Abstract: <%= @paper.abstract.strip %>
 Length: <%= @paper.paper_length %>
-File-URL: <%= polymorphic_url(@paper.file) %>
+File-URL: <%= resolve_redirect(polymorphic_url(@paper.file)) %>
 File-Format: Application/pdf
 Number: <%= @paper.paper_number %>
 Classification-JEL: <%= @paper.classification_jel.strip %>
