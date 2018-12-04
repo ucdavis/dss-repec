@@ -31,7 +31,7 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     @paper = Paper.new(paper_params)
-    @paper.paper_number = Paper.maximum("paper_number") + 1
+    @paper.paper_number = Paper.maximum('paper_number') + 1
 
     respond_to do |format|
       if @paper.save

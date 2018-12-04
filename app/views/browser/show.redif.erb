@@ -13,9 +13,9 @@ Title: <%= @paper.title.strip %>
 Abstract: <%= @paper.abstract.strip %>
 Length: <%= @paper.paper_length %>
 File-URL: <%= public_blob_url(@paper.file) %>
-File-Format: Application/pdf
-Number: <%= @paper.paper_number %>
+File-Format: application/pdf
+Number: <%= @paper.id %>
 Classification-JEL: <%= @paper.classification_jel.strip %>
 KeyWords: <%= @paper.keywords.strip %>
 Creation-Date: <%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%Y%m%d') %>
-Handle: RePEc:cda:wpaper:<%= @paper.paper_number.to_s.rjust(3, "0")[0..1] + '-' + @paper.paper_number.to_s.rjust(3, "0")[2..-1] %>
+Handle: RePEc:cda:wpaper:<%= @paper.id %>
