@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   # It's important these files are served from within the 'cda' folder, else
   # the global RePEc service will complain.
-  get 'repec/cda/cdaarch.redif', to: static('cdaarch.redif')
-  get 'repec/cda/cdaseri.redif', to: static('cdaseri.redif')
+  get 'repec/cda/cdaarch.redif', to: 'browser#cdaarch'
+  get 'repec/cda/cdaseri.redif', to: 'browser#cdaseri'
 
   get 'repec/cda/wpaper/:id.redif', as: :paper_redif, action: :show_redif, controller: :browser
   get '/:path', to: 'browser#index', as: :pathway, constraints: { path: /repec[\/a-zA-Z]*/i }

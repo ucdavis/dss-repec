@@ -1,5 +1,5 @@
 class BrowserController < ApplicationController
-  skip_before_action :authenticate, only: [:index, :show_redif]
+  skip_before_action :authenticate, only: [:index, :show_redif, :cdaarch, :cdaseri]
 
   # GET /papers
   # GET /papers.json
@@ -11,6 +11,16 @@ class BrowserController < ApplicationController
     headers['Content-Type'] = 'text/html; charset=utf-8'
 
     render layout: 'browser'
+  end
+
+  # Emulate static file cdaarch.redif
+  def cdaarch
+    render 'cdaarch.redif', layout: false
+  end
+
+  # Emulate static file cdaseri.redif
+  def cdaseri
+    render 'cdaseri.redif', layout: false
   end
 
   def show_redif
