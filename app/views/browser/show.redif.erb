@@ -10,12 +10,12 @@ Author-Name-Last: <%= author.name.split[-1] %>
 <% end %>
 <% end %>Author-Workplace-Name: Department of Economics, University of California Davis
 Title: <%= @paper.title.strip %>
-Abstract: <%= @paper.abstract.strip %>
+Abstract: <%= @paper.abstract.strip.gsub("\r", '').gsub("\n", "\n ") %>
 Length: <%= @paper.paper_length %>
 File-URL: <%= public_blob_url(@paper.file) %>
 File-Format: application/pdf
 Number: <%= @paper.id %>
-Classification-JEL: <%= @paper.classification_jel.strip %>
+Classification-JEL: <%= @paper.prettify_jel_codes %>
 KeyWords: <%= @paper.keywords.strip %>
 Creation-Date: <%= @paper.created_at.in_time_zone('Pacific Time (US & Canada)').strftime('%Y%m%d') %>
 Handle: RePEc:cda:wpaper:<%= @paper.id %>

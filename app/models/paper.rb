@@ -2,10 +2,16 @@ class Paper < ApplicationRecord
   has_and_belongs_to_many :authors
   has_one_attached :file
 
-  validates :title, :abstract, :authors, :presence => true
+  validates :title, :abstract, :authors, presence: true
   validate :file_type
 
-private
+  # Returns the JEL codes prettified while removing invalid codes
+  def prettify_jel_codes
+    classification_jel.strip.gsub('.','').gsub(' ','').split(',').select{|e| /(^[A-Z][0-9]*$)/.match(e) != nil }.map{|e| e.strip}.join(', ')
+  end
+
+  private
+
   def file_type
     if file.attached? == false
       errors.add(:file, 'must have a document attached')
