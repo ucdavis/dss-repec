@@ -10,7 +10,24 @@ class BrowserController < ApplicationController
 
     headers['Content-Type'] = 'text/html; charset=utf-8'
 
-    render layout: 'browser'
+    valid_paths = [
+      nil,
+      'repec',
+      'repec/cda',
+      'repec/cda/wpaper'
+    ]
+
+    unless valid_paths.include?(@path)
+      Rails.logger.debug "Raising 404 due to invalid path request: '#{@path}'"
+      raise ActionController::RoutingError.new('Not Found')
+    end
+
+    begin
+      render 'browser/index', layout: 'browser'
+    rescue ActionView::MissingTemplate => e
+      Rails.logger.debug "Raising 404 due to invalid format request: '#{e}'"
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   # Emulate static file cdaarch.redif
