@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_25_205438) do
+ActiveRecord::Schema.define(version: 2020_02_24_224005) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_205438) do
   create_table "authors_papers", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "paper_id", null: false
     t.bigint "author_id", null: false
+    t.integer "rank"
     t.index ["paper_id", "author_id"], name: "index_authors_papers_on_paper_id_and_author_id"
   end
 
