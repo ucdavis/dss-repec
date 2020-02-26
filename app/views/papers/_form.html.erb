@@ -30,14 +30,19 @@
     </div>
 
     <div class="create form-group">
-      <h3>Authors</h3> (required, select at least one)
+      <h3>Authors:
+        <span class="small text-muted">
+          <%= @paper.authors.map { |author| author.name }.join(', ') %>
+        </span>
+      </h3>
+      <div>(required, select at least one)</div>
         <div id="authors_boxed_list">
           <ul>
             <% Author.order('lower(name)').all.each do |author| %>
-              <% checked = @paper.authors.include?(author) %>
+              <% @rank ? rank = @ranks[author.id] : rank = nil %>
                 <span class="three columns alpha">
                   <label>
-                    <%= check_box_tag "paper[author_ids][]", author.id, checked %>
+                    <%= number_field_tag "paper[ranks][#{author.id}]", rank, {min: 1, max: 99} %>
                     <span class="gig-check"><%= author.name %></span>
                   </label>
                 </span>

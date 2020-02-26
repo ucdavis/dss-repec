@@ -24,6 +24,11 @@ class PapersController < ApplicationController
   # GET /papers/1/edit
   def edit
     @paper = Paper.find(params[:id])
+    @ranks = {}
+    @paper.authors_papers.each do |authors_paper|
+      author_id = authors_paper.author_id
+      @ranks[author_id] = authors_paper.rank
+    end
     add_breadcrumb "Edit author", edit_paper_path
   end
 
@@ -50,8 +55,17 @@ class PapersController < ApplicationController
   # PATCH/PUT /papers/1
   # PATCH/PUT /papers/1.json
   def update
+    update_params = paper_params
+    author_rankings = paper_params[:ranks].to_h.reject{ |k,v| v.empty? }
+    update_params[:author_ids] = author_rankings.keys
+
     respond_to do |format|
-      if @paper.update(paper_params)
+      if @paper.update(update_params.except(:ranks))
+
+          author_rankings.each do |id, rank|
+            @paper.authors_papers.where(:author_id => id).update_all(rank: rank)
+          end
+
         format.html {
           flash[:success] = "Paper was successfully updated."
           redirect_to @paper
@@ -94,6 +108,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paper_params
-    params.require(:paper).permit(:file, :title, :text, :paper_number, :paper_length, :abstract, :keywords, :creation_date, :classification_jel, author_ids: [])
+    params.require(:paper).permit(:file, :title, :text, :paper_number, :paper_length, :abstract, :keywords, :creation_date, :classification_jel, author_ids: [], ranks: {})
   end
 end
