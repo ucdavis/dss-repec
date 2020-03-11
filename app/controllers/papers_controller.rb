@@ -35,11 +35,19 @@ class PapersController < ApplicationController
   # POST /papers
   # POST /papers.json
   def create
-    @paper = Paper.new(paper_params)
+    create_params = paper_params
+    author_rankings = paper_params[:ranks].to_h.reject{ |k,v| v.empty? }
+    create_params[:author_ids] = author_rankings.keys
+
+    @paper = Paper.new(create_params.except(:ranks))
     @paper.paper_number = Paper.maximum('paper_number') + 1
 
     respond_to do |format|
       if @paper.save
+        author_rankings.each do |id, rank|
+          @paper.authors_papers.where(:author_id => id).update_all(rank: rank)
+        end
+
         format.html {
           flash[:success] = "Paper was successfully created."
           redirect_to @paper
