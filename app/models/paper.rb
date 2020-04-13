@@ -1,5 +1,7 @@
 class Paper < ApplicationRecord
-  has_and_belongs_to_many :authors
+  has_many :authors_papers
+  has_many :authors, -> { includes(:authors_papers).order('authors_papers.rank') }, through: :authors_papers
+
   has_one_attached :file
 
   validates :title, :abstract, :authors, presence: true

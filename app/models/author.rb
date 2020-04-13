@@ -1,5 +1,6 @@
 class Author < ApplicationRecord
-  has_and_belongs_to_many :papers
+  has_many :authors_papers
+  has_many :papers, through: :authors_papers
 
   validates :name, :presence => true
 
