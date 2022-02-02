@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.5'
+ruby '~> 2.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2.0'
 # Use MySQL as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +25,7 @@ gem 'jquery-ui-rails', '5.0.5'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem "breadcrumbs_on_rails"
 gem 'jquery-datetimepicker-rails', '~> 2.4', '>= 2.4.1.0'
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', '~> 1.0'
 
 # For CAS authentication
 gem 'rubycas-client', git: 'https://github.com/rubycas/rubycas-client.git'

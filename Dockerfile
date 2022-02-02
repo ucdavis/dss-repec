@@ -1,9 +1,9 @@
-FROM ruby:2.5-alpine
+FROM ruby:2.7-alpine
 
 ENV PATH /root/.yarn/bin:$PATH
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh build-base nodejs nodejs-npm tzdata mysql-dev
+    apk add --no-cache bash git openssh build-base nodejs npm tzdata mysql-dev
 
 RUN apk update \
   && apk add curl bash binutils tar gnupg \
