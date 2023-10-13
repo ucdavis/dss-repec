@@ -14,7 +14,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require jquery-ui/datepicker
+//= require jquery-ui/widgets/datepicker
 //= require jquery.datetimepicker/init
 //= require activestorage
 //= require popper
