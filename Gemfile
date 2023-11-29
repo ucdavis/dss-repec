@@ -26,7 +26,7 @@ gem "jquery-ui-rails", :git => 'https://github.com/jquery-ui-rails/jquery-ui-rai
 gem 'font-awesome-sass', '~> 5.4.1'
 gem "breadcrumbs_on_rails"
 gem 'jquery-datetimepicker-rails', '~> 2.4', '>= 2.4.1.0'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 2.2'
 
 # For CAS authentication
 gem 'rubycas-client'
