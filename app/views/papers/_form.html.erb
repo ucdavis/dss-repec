@@ -39,10 +39,10 @@
         <div id="authors_boxed_list">
           <ul>
             <% Author.order('lower(name)').all.each do |author| %>
-              <% @ranks ? rank = @ranks[author.id] : rank = nil %>
+              <% @priorities ? priority = @priorities[author.id] : priority = nil %>
                 <span class="three columns alpha">
                   <label>
-                    <%= number_field_tag "paper[ranks][#{author.id}]", rank, {min: 1, max: 99} %>
+                    <%= number_field_tag "paper[priorities][#{author.id}]", priority, {min: 1, max: 99} %>
                     <span class="gig-check"><%= author.name %></span>
                   </label>
                 </span>
@@ -78,7 +78,7 @@
     </div>
 
     <div class="actions" id="submit_button">
-      <%= form.submit "Add Paper", class: "btn btn-secondary" %>
+      <%= form.submit (@paper.new_record? ? "Add Paper" : "Edit Paper"), class: "btn btn-secondary" %>
     </div>
   </div>
 <% end %>

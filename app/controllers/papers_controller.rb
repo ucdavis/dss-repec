@@ -24,10 +24,10 @@ class PapersController < ApplicationController
   # GET /papers/1/edit
   def edit
     @paper = Paper.find(params[:id])
-    @ranks = {}
+    @priorities = {}
     @paper.authors_papers.each do |authors_paper|
       author_id = authors_paper.author_id
-      @ranks[author_id] = authors_paper.rank
+      @priorities[author_id] = authors_paper.priority
     end
     add_breadcrumb "Edit author", edit_paper_path
   end
@@ -36,16 +36,16 @@ class PapersController < ApplicationController
   # POST /papers.json
   def create
     create_params = paper_params
-    author_rankings = paper_params[:ranks].to_h.reject{ |k,v| v.empty? }
-    create_params[:author_ids] = author_rankings.keys
+    author_priorities = paper_params[:priorities].to_h.reject{ |k,v| v.empty? }
+    create_params[:author_ids] = author_priorities.keys
 
-    @paper = Paper.new(create_params.except(:ranks))
+    @paper = Paper.new(create_params.except(:priorities))
     @paper.paper_number = Paper.maximum('paper_number') + 1
 
     respond_to do |format|
       if @paper.save
-        author_rankings.each do |id, rank|
-          @paper.authors_papers.where(:author_id => id).update_all(rank: rank)
+        author_priorities.each do |id, priority|
+          @paper.authors_papers.where(:author_id => id).update_all(priority: priority)
         end
 
         format.html {
@@ -64,14 +64,14 @@ class PapersController < ApplicationController
   # PATCH/PUT /papers/1.json
   def update
     update_params = paper_params
-    author_rankings = paper_params[:ranks].to_h.reject{ |k,v| v.empty? }
-    update_params[:author_ids] = author_rankings.keys
+    author_priorities = paper_params[:priorities].to_h.reject{ |k,v| v.empty? }
+    update_params[:author_ids] = author_priorities.keys
 
     respond_to do |format|
-      if @paper.update(update_params.except(:ranks))
+      if @paper.update(update_params.except(:priorities))
 
-          author_rankings.each do |id, rank|
-            @paper.authors_papers.where(:author_id => id).update_all(rank: rank)
+          author_priorities.each do |id, priority|
+            @paper.authors_papers.where(:author_id => id).update_all(priority: priority)
           end
 
         format.html {
@@ -116,6 +116,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def paper_params
-    params.require(:paper).permit(:file, :title, :text, :paper_number, :paper_length, :abstract, :keywords, :creation_date, :classification_jel, author_ids: [], ranks: {})
+    params.require(:paper).permit(:file, :title, :text, :paper_number, :paper_length, :abstract, :keywords, :creation_date, :classification_jel, author_ids: [], priorities: {})
   end
 end
