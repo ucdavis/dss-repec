@@ -33,4 +33,4 @@
 
 .rbenv-vars
 env.list
-.env
+*.env
