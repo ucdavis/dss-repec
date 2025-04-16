@@ -6,6 +6,8 @@ gem 'rexml' # no longer bundled with Ruby 3.0
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'
+gem 'concurrent-ruby', '< 1.3.5' # https://github.com/rails/rails/pull/54264
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use MySQL as the database for Active Record
