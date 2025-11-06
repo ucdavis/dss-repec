@@ -31,7 +31,7 @@ gem 'jquery-datetimepicker-rails', '~> 2.4', '>= 2.4.1.0'
 gem 'carrierwave', '~> 3.0'
 
 # For CAS authentication
-gem 'rubycas-client'
+gem 'rack-cas'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

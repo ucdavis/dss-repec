@@ -2,9 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate
 
   def authenticate
-    CASClient::Frameworks::Rails::Filter.filter(self)
+    unless cas_login
+      head :unauthorized
+      return
+    end
 
-    @loginid = session[:cas_user]
+    @loginid = cas_login
 
     if @loginid
       @user = User.find_by(loginid: @loginid)
@@ -13,5 +16,11 @@ class ApplicationController < ActionController::Base
         render 'users/unauthorized', status: :forbidden
       end
     end
+  end
+
+  private
+
+  def cas_login
+    session.dig('cas', 'user')
   end
 end
