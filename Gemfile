@@ -15,7 +15,7 @@ gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -25,7 +25,7 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "jquery-ui-rails", :git => 'https://github.com/jquery-ui-rails/jquery-ui-rails.git'
-gem 'font-awesome-sass', '~> 5.4.1'
+gem 'font-awesome-sass', '~> 5.15'
 gem "breadcrumbs_on_rails"
 gem 'jquery-datetimepicker-rails', '~> 2.4', '>= 2.4.1.0'
 
