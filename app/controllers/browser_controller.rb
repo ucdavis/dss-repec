@@ -32,12 +32,12 @@ class BrowserController < ApplicationController
 
   # Emulate static file cdaarch.redif
   def cdaarch
-    render 'cdaarch.redif', layout: false
+    render 'cdaarch', formats: [:redif], layout: false
   end
 
   # Emulate static file cdaseri.redif
   def cdaseri
-    render 'cdaseri.redif', layout: false
+    render 'cdaseri', formats: [:redif], layout: false
   end
 
   def show_redif
