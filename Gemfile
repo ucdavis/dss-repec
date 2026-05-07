@@ -13,7 +13,7 @@ gem 'concurrent-ruby', '< 1.3.5' # https://github.com/rails/rails/pull/54264
 # Use MySQL as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 6.0'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use Terser as compressor for JavaScript assets
