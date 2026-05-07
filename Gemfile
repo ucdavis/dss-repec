@@ -13,6 +13,8 @@ gem 'rails', '~> 7.0.0'
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
+# Use the asset pipeline
+gem 'sprockets-rails'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use Terser as compressor for JavaScript assets

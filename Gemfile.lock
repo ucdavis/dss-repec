@@ -298,6 +298,7 @@ DEPENDENCIES
   rexml
   sassc-rails
   selenium-webdriver
+  sprockets-rails
   terser
   tzinfo-data
   web-console (~> 4.2)
