@@ -1,17 +1,9 @@
-FROM ruby:3.2-alpine
+FROM ruby:3.4-slim
 
-ENV PATH /root/.yarn/bin:$PATH
-
-RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh build-base nodejs npm tzdata mysql-dev
-
-RUN apk update \
-  && apk add curl bash binutils tar gnupg \
-  && rm -rf /var/cache/apk/* \
-  && /bin/bash \
-  && touch ~/.bashrc \
-  && curl -o- -L https://yarnpkg.com/install.sh | bash \
-  && apk del tar binutils
+RUN apt-get update -qq && apt-get install --no-install-recommends -y \
+  git curl build-essential pkg-config \
+  default-libmysqlclient-dev libyaml-dev libffi-dev nodejs \
+  && rm -rf /var/lib/apt/lists/*
 
 # Configure the main working directory. This is the base
 # directory used in any further RUN, COPY, and ENTRYPOINT
@@ -26,12 +18,6 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install bundler \
   && bundle config set without 'development test' \
   && bundle install -j "$(getconf _NPROCESSORS_ONLN)" --retry 5
-
-# Copy dependencies for Node.js and instance the packages.
-# Again, being separate means this will cache.
-COPY package.json yarn.lock ./
-RUN yarn install
-RUN npm rebuild node-sass --force
 
 ARG RAILS_ENV=production
 ENV RAILS_ENV $RAILS_ENV
