@@ -12,7 +12,7 @@ gem 'rails', '~> 7.2'
 # Use MySQL as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 7.2'
 # Use the asset pipeline
 gem 'sprockets-rails'
 # Use SCSS for stylesheets
