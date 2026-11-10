@@ -34,3 +34,4 @@
 .rbenv-vars
 env.list
 *.env
+.envrc
