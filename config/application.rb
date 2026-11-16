@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Repec
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.2
+    config.load_defaults 8.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -23,5 +23,8 @@ module Repec
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Only PDFs are stored; no image variants are generated.
+    config.active_storage.variant_processor = :disabled
   end
 end
