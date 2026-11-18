@@ -74,5 +74,8 @@ EXPOSE 3000
 # create directory needed for puma pid file
 RUN mkdir -p tmp/pids
 
+# Limit glibc malloc arenas to reduce memory fragmentation from threads.
+ENV MALLOC_ARENA_MAX 2
+
 # Start puma
 CMD bundle exec puma -C config/puma.rb
